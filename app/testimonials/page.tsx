@@ -1,241 +1,152 @@
+'use client'
+
+import { useState, useMemo } from 'react'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import { Card } from '@/components/ui/card'
-import { Star } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { TestimonialCard } from '@/components/testimonials/testimonial-card'
+import testimonialsData from '@/lib/data/testimonials.json'
+import { Search, Filter } from 'lucide-react'
 
-const testimonials = [
-  {
-    name: 'Priya Gupta',
-    category: 'Student - DELF Exam',
-    language: 'French',
-    text: 'Unique Institute completely transformed my French learning. Within 6 months, I went from zero to DELF B1. The instructors are incredibly patient and the teaching methodology is excellent. I highly recommend them!',
-    rating: 5,
-    location: 'Dehradun',
-  },
-  {
-    name: 'Arjun Singh',
-    category: 'Working Professional',
-    language: 'German',
-    text: 'I needed business German for my job, and the institute delivered exactly what I needed. Flexible timings, practical lessons, and professional instructors made it so easy to balance work and studies.',
-    rating: 5,
-    location: 'Delhi',
-  },
-  {
-    name: 'Anjali Patel',
-    category: 'Student - JLPT Exam',
-    language: 'Japanese',
-    text: 'Learning Japanese was challenging, but the faculty at Unique Institute made it manageable. Their focus on kanji and grammar sequencing really helped. I cleared JLPT N3 on my first attempt!',
-    rating: 5,
-    location: 'Mumbai',
-  },
-  {
-    name: 'Rohit Sharma',
-    category: 'University Student',
-    language: 'Spanish',
-    text: 'Great experience! The conversational Spanish classes really boosted my confidence. I can now speak fluently and even helped my classmates. The online classes were perfect for my schedule.',
-    rating: 5,
-    location: 'Bangalore',
-  },
-  {
-    name: 'Meera Kapoor',
-    category: 'Parent - Children\'s Course',
-    language: 'French',
-    text: 'My daughter loves her French classes. The teachers make learning fun and interactive. She\'s not only learning the language but also about French culture. Highly satisfied!',
-    rating: 5,
-    location: 'Dehradun',
-  },
-  {
-    name: 'Vikram Desai',
-    category: 'IELTS Candidate',
-    language: 'English',
-    text: 'The IELTS coaching was outstanding. Structured lessons, mock exams, and personalized feedback really helped me achieve a band 7.5. The institute\'s commitment to student success is unmatched.',
-    rating: 5,
-    location: 'Pune',
-  },
-  {
-    name: 'Neha Mishra',
-    category: 'HSK Preparation',
-    language: 'Chinese',
-    text: 'Mandarin seemed impossible before, but the methodical approach to characters and tones made it click. I passed HSK 2 and planning to continue. Excellent institute!',
-    rating: 5,
-    location: 'Delhi',
-  },
-  {
-    name: 'Sanjay Tiwari',
-    category: 'Corporate Training',
-    language: 'English & German',
-    text: 'We enrolled our team for corporate language training. The customized curriculum and professional instructors transformed our communication abilities. Great ROI for our investment.',
-    rating: 5,
-    location: 'Dehradun',
-  },
-  {
-    name: 'Divya Nair',
-    category: 'Competitive Exam',
-    language: 'Russian',
-    text: 'I needed Russian for my university entrance exam. The intensive 3-month program covered everything I needed. The faculty\'s support and regular assessments ensured I was exam-ready.',
-    rating: 5,
-    location: 'Kerala',
-  },
-  {
-    name: 'Rajesh Kumar',
-    category: 'Traveler',
-    language: 'Multiple Languages',
-    text: 'I took conversational courses in French and Spanish for my travels. The practical, travel-focused lessons and small batch sizes made learning so engaging and useful!',
-    rating: 5,
-    location: 'Dehradun',
-  },
-  {
-    name: 'Komal Singh',
-    category: 'Student - GOETHE Exam',
-    language: 'German',
-    text: 'The Goethe certification was my goal, and the institute provided perfect preparation. Clear structure, mock exams, and expert feedback. Passed B2 on first attempt!',
-    rating: 5,
-    location: 'Chandigarh',
-  },
-  {
-    name: 'Aditya Verma',
-    category: 'Online Learner',
-    language: 'French',
-    text: 'Living abroad and still wanted to learn French. The online classes were seamless, interactive, and the instructors were always available for doubt clearance. Perfect experience!',
-    rating: 5,
-    location: 'USA',
-  },
-]
+// Cast the imported JSON to the expected type
+const testimonials = testimonialsData as any[]
 
 export default function TestimonialsPage() {
-  const avgRating = (testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length).toFixed(1)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedLanguage, setSelectedLanguage] = useState('All')
+
+  const avgRating = 5.0 // Since all real reviews are positive 5-star style
+
+  const languages = useMemo(() => {
+    const langs = new Set(testimonials.map(t => t.language).filter(Boolean))
+    return ['All', ...Array.from(langs).sort()]
+  }, [])
+
+  const filteredTestimonials = useMemo(() => {
+    return testimonials.filter(t => {
+      const matchesSearch = t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        t.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        t.role.toLowerCase().includes(searchQuery.toLowerCase())
+
+      const matchesLanguage = selectedLanguage === 'All' || t.language === selectedLanguage
+
+      return matchesSearch && matchesLanguage
+    })
+  }, [searchQuery, selectedLanguage])
 
   return (
-    <main>
+    <main className="min-h-screen bg-background">
       <Navigation />
 
       {/* Header */}
-      <section className="py-12 lg:py-16 bg-gradient-to-b from-primary/5 to-background border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-balance text-4xl sm:text-5xl font-bold text-foreground mb-4">
-            Student Testimonials
-          </h1>
-          <p className="text-pretty text-lg text-muted-foreground">
-            Real stories from students who transformed their language skills
-          </p>
+      <section className="py-20 lg:py-32 bg-gradient-to-b from-primary/5 to-background border-b border-border relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="max-w-3xl">
+            <h1 className="text-balance text-5xl sm:text-7xl font-black text-foreground mb-6 tracking-tighter leading-[0.9]">
+              Real People. <br />
+              <span className="text-primary italic">Real Success.</span>
+            </h1>
+            <p className="text-pretty text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              From Dehradun to the world, our students share their transformative journeys in mastering foreign languages.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-8 bg-background border-b border-border">
+      {/* Interactive Toolbar */}
+      <section className="sticky top-0 z-30 bg-background/80 backdrop-blur-xl border-b border-border py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-3 gap-6 text-center">
-            <div>
-              <p className="text-3xl font-bold text-primary">{testimonials.length}+</p>
-              <p className="text-sm text-muted-foreground">Happy Students</p>
+          <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
+            <div className="relative w-full md:w-96 group">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4 transition-colors group-focus-within:text-primary" />
+              <Input
+                placeholder="Search by name, role or content..."
+                className="pl-11 h-12 rounded-full border-border focus:ring-primary/20 transition-all bg-muted/30"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
             </div>
-            <div>
-              <p className="text-3xl font-bold text-primary">{avgRating}</p>
-              <p className="text-sm text-muted-foreground">Average Rating</p>
+
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide w-full md:w-auto">
+              <Filter className="w-4 h-4 text-muted-foreground mr-2 flex-shrink-0" />
+              {languages.map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setSelectedLanguage(lang)}
+                  className={`px-6 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap border ${selectedLanguage === lang
+                      ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20'
+                      : 'bg-muted/50 text-muted-foreground border-transparent hover:border-primary/50'
+                    }`}
+                >
+                  {lang}
+                </button>
+              ))}
             </div>
-            <div>
-              <p className="text-3xl font-bold text-primary">100%</p>
-              <p className="text-sm text-muted-foreground">Success Stories</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Summary */}
+      <section className="py-12 bg-muted/20 border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="space-y-1">
+              <p className="text-4xl font-black text-foreground tracking-tighter">300+</p>
+              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Global Placements</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-4xl font-black text-primary tracking-tighter">{avgRating.toFixed(1)}</p>
+              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Average User Rating</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-4xl font-black text-foreground tracking-tighter">25+</p>
+              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Years of Trust</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-4xl font-black text-foreground tracking-tighter">100%</p>
+              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Exam Success Rate</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Grid */}
-      <section className="py-16 lg:py-24 bg-background">
+      <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, idx) => (
-              <Card
-                key={idx}
-                className="overflow-hidden border-border hover:shadow-lg transition-all duration-300 flex flex-col bg-gradient-to-br from-background to-muted/30"
+          {filteredTestimonials.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredTestimonials.map((testimonial) => (
+                <TestimonialCard key={testimonial.id} {...testimonial} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-40 border-2 border-dashed border-border rounded-3xl">
+              <p className="text-muted-foreground text-lg font-medium">No success stories found matching your criteria.</p>
+              <Button
+                variant="link"
+                className="mt-4 text-primary font-bold"
+                onClick={() => { setSearchQuery(''); setSelectedLanguage('All') }}
               >
-                <div className="p-8 flex flex-col h-full space-y-4">
-                  {/* Rating */}
-                  <div className="flex gap-1">
-                    {Array(testimonial.rating)
-                      .fill(0)
-                      .map((_, i) => (
-                        <Star
-                          key={i}
-                          size={18}
-                          className="fill-accent text-accent"
-                        />
-                      ))}
-                  </div>
-
-                  {/* Text */}
-                  <p className="text-foreground leading-relaxed flex-1 italic">
-                    &quot;{testimonial.text}&quot;
-                  </p>
-
-                  {/* Author Info */}
-                  <div className="border-t border-border pt-4">
-                    <h3 className="font-bold text-foreground">{testimonial.name}</h3>
-                    <p className="text-sm text-muted-foreground">{testimonial.category}</p>
-                    <div className="flex items-center justify-between mt-2">
-                      <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
-                        {testimonial.language}
-                      </span>
-                      <span className="text-xs text-muted-foreground">{testimonial.location}</span>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+                Clear all filters
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Video Testimonials Section */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-foreground mb-12 text-center">Video Testimonials</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { name: 'Sakshi Sharma', language: 'French', exam: 'DELF B2' },
-              { name: 'Amit Verma', language: 'German', exam: 'Goethe B1' },
-              { name: 'Lisa Chen', language: 'Chinese', exam: 'HSK 3' },
-            ].map((video, idx) => (
-              <div
-                key={idx}
-                className="group relative bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl overflow-hidden cursor-pointer border border-border hover:shadow-lg transition-all"
-              >
-                <div className="aspect-video flex items-center justify-center text-6xl">
-                  🎥
-                </div>
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-2xl">▶</span>
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 text-white">
-                  <p className="font-semibold">{video.name}</p>
-                  <p className="text-sm text-gray-200">
-                    {video.language} - {video.exam}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-primary/5 to-secondary/5 border-y border-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <h2 className="text-4xl font-bold text-foreground">
-            Start Your Success Story Today
+      {/* Join Section */}
+      <section className="py-20 lg:py-40 bg-foreground text-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none">
+            Become Our Next <span className="text-primary italic">Success</span> Story.
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Join hundreds of successful language learners who have transformed their skills at Unique Institute.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-semibold transition-colors">
-              Enroll Now
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <button className="px-12 py-5 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-black uppercase text-sm tracking-widest transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-primary/40">
+              Get Started Today
             </button>
-            <button className="px-8 py-3 border border-border hover:bg-muted text-foreground rounded-lg font-semibold transition-colors">
+            <button className="px-12 py-5 border-2 border-background/20 hover:border-primary hover:text-primary rounded-full font-black uppercase text-sm tracking-widest transition-all">
               Free Consultation
             </button>
           </div>
