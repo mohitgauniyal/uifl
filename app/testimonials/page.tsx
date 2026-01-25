@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { Button } from '@/components/ui/button'
@@ -13,10 +13,25 @@ import { Search, Filter } from 'lucide-react'
 const testimonials = testimonialsData as any[]
 
 export default function TestimonialsPage() {
+  const [shuffledTestimonials, setShuffledTestimonials] = useState<any[]>([])
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedLanguage, setSelectedLanguage] = useState('All')
 
+  // Shuffle algorithm
+  const shuffle = (array: any[]) => {
+    const newArray = [...array]
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]]
+    }
+    return newArray
+  }
+
   const avgRating = 5.0 // Since all real reviews are positive 5-star style
+
+  useEffect(() => {
+    setShuffledTestimonials(shuffle(testimonials))
+  }, [])
 
   const languages = useMemo(() => {
     const langs = new Set(testimonials.map(t => t.language).filter(Boolean))
@@ -24,7 +39,7 @@ export default function TestimonialsPage() {
   }, [])
 
   const filteredTestimonials = useMemo(() => {
-    return testimonials.filter(t => {
+    return shuffledTestimonials.filter(t => {
       const matchesSearch = t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         t.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
         t.role.toLowerCase().includes(searchQuery.toLowerCase())
@@ -33,7 +48,7 @@ export default function TestimonialsPage() {
 
       return matchesSearch && matchesLanguage
     })
-  }, [searchQuery, selectedLanguage])
+  }, [shuffledTestimonials, searchQuery, selectedLanguage])
 
   return (
     <main className="min-h-screen bg-background">
@@ -76,8 +91,8 @@ export default function TestimonialsPage() {
                   key={lang}
                   onClick={() => setSelectedLanguage(lang)}
                   className={`px-6 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap border ${selectedLanguage === lang
-                      ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20'
-                      : 'bg-muted/50 text-muted-foreground border-transparent hover:border-primary/50'
+                    ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20'
+                    : 'bg-muted/50 text-muted-foreground border-transparent hover:border-primary/50'
                     }`}
                 >
                   {lang}

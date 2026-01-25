@@ -9,8 +9,23 @@ import testimonialsData from '@/lib/data/testimonials.json'
 const testimonials = testimonialsData as any[]
 
 export default function Testimonials() {
+  const [shuffledTestimonials, setShuffledTestimonials] = useState<any[]>([])
   const [isAutoPlay, setIsAutoPlay] = useState(true)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+  // Shuffle algorithm
+  const shuffle = (array: any[]) => {
+    const newArray = [...array]
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]]
+    }
+    return newArray
+  }
+
+  useEffect(() => {
+    setShuffledTestimonials(shuffle(testimonialsData))
+  }, [])
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -89,10 +104,10 @@ export default function Testimonials() {
             className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-12 cursor-grab active:cursor-grabbing"
             onMouseDown={() => setIsAutoPlay(false)}
           >
-            {testimonials.map((testimonial) => (
+            {shuffledTestimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="flex-shrink-0 w-[350px] md:w-[450px] snap-start"
+                className="flex-shrink-0 w-[300px] md:w-[380px] snap-start"
               >
                 <TestimonialCard {...testimonial} />
               </div>
@@ -105,7 +120,7 @@ export default function Testimonials() {
             href="/testimonials"
             className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline underline-offset-8 decoration-2 uppercase tracking-widest"
           >
-            View all {testimonials.length} reviews
+            View all {shuffledTestimonials.length} reviews
             <ChevronRight size={16} />
           </a>
         </div>
