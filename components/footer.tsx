@@ -39,19 +39,19 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-foreground/5 border-t border-border">
+    <footer className="bg-muted/50 border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 py-16">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">U</span>
+            <Link href="/" className="flex items-center gap-2.5 mb-6">
+              <div className="w-9 h-9 bg-primary rounded-md flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-base">U</span>
               </div>
-              <div>
-                <h3 className="font-bold text-primary">UIFL</h3>
-                <p className="text-xs text-muted-foreground">Languages</p>
+              <div className="leading-tight">
+                <span className="block text-sm font-bold tracking-tight text-foreground">UIFL</span>
+                <span className="block text-[11px] text-muted-foreground">Foreign Languages</span>
               </div>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">

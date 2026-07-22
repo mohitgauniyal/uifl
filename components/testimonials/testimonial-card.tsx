@@ -100,7 +100,7 @@ export function TestimonialCard({
                 {type === 'text' && (
                     <div className="flex gap-0.5 mb-3">
                         {Array.from({ length: rating }).map((_, i) => (
-                            <Star key={i} size={12} className="fill-secondary text-secondary" />
+                            <Star key={i} size={12} className="fill-highlight text-highlight" />
                         ))}
                     </div>
                 )}
@@ -190,7 +190,7 @@ export function TestimonialCard({
                     <div className="p-10 pt-6">
                         <div className="flex gap-1 mb-6">
                             {Array.from({ length: rating }).map((_, i) => (
-                                <Star key={i} size={20} className="fill-secondary text-secondary" />
+                                <Star key={i} size={20} className="fill-highlight text-highlight" />
                             ))}
                         </div>
 

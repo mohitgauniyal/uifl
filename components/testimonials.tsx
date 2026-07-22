@@ -61,38 +61,38 @@ export default function Testimonials() {
   }, [isAutoPlay])
 
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-b from-muted/30 to-background overflow-hidden">
+    <section className="py-20 lg:py-28 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
           <div className="max-w-2xl">
-            <p className="text-sm font-black text-primary tracking-[0.2em] uppercase mb-4 flex items-center gap-2">
-              <span className="w-8 h-[2px] bg-primary" />
-              Success Stories
-            </p>
-            <h2 className="text-balance text-4xl sm:text-5xl lg:text-6xl font-black text-foreground leading-[1.1] tracking-tighter">
-              Trust the <span className="text-primary italic">Best</span> in Dehradun.
+            <p className="text-sm font-semibold text-primary mb-2">Success stories</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+              Trusted by students across Dehradun
             </h2>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <button
               onClick={() => scroll('left')}
-              className="group w-14 h-14 bg-background border-2 border-border rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 shadow-xl hover:shadow-primary/20"
+              aria-label="Previous"
+              className="group w-11 h-11 bg-background border border-border rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
             >
-              <ChevronLeft size={24} className="text-foreground group-hover:text-white transition-colors" />
+              <ChevronLeft size={20} className="text-foreground group-hover:text-primary-foreground transition-colors" />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="group w-14 h-14 bg-background border-2 border-border rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 shadow-xl hover:shadow-primary/20"
+              aria-label="Next"
+              className="group w-11 h-11 bg-background border border-border rounded-full flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
             >
-              <ChevronRight size={24} className="text-foreground group-hover:text-white transition-colors" />
+              <ChevronRight size={20} className="text-foreground group-hover:text-primary-foreground transition-colors" />
             </button>
             <button
               onClick={() => setIsAutoPlay(!isAutoPlay)}
-              className="w-14 h-14 bg-secondary/10 border-2 border-secondary/20 rounded-full flex items-center justify-center hover:bg-secondary/20 transition-all font-bold text-secondary"
+              aria-label={isAutoPlay ? 'Pause autoplay' : 'Play autoplay'}
+              className="w-11 h-11 bg-muted border border-border rounded-full flex items-center justify-center hover:bg-accent transition-colors text-muted-foreground"
             >
-              {isAutoPlay ? <Pause size={20} /> : <Play size={20} className="fill-current" />}
+              {isAutoPlay ? <Pause size={18} /> : <Play size={18} className="fill-current" />}
             </button>
           </div>
         </div>

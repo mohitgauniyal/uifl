@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo, useEffect } from 'react'
+import Link from 'next/link'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { Button } from '@/components/ui/button'
@@ -9,43 +10,46 @@ import { TestimonialCard } from '@/components/testimonials/testimonial-card'
 import testimonialsData from '@/lib/data/testimonials.json'
 import { Search, Filter } from 'lucide-react'
 
-// Cast the imported JSON to the expected type
 const testimonials = testimonialsData as any[]
+
+const summaryStats = [
+  { value: '300+', label: 'Global placements' },
+  { value: '5.0', label: 'Average rating' },
+  { value: '25+', label: 'Years of trust' },
+  { value: '95%', label: 'Exam success rate' },
+]
 
 export default function TestimonialsPage() {
   const [shuffledTestimonials, setShuffledTestimonials] = useState<any[]>([])
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedLanguage, setSelectedLanguage] = useState('All')
 
-  // Shuffle algorithm
   const shuffle = (array: any[]) => {
     const newArray = [...array]
     for (let i = newArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newArray[i], newArray[j]] = [newArray[j], newArray[i]]
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[newArray[i], newArray[j]] = [newArray[j], newArray[i]]
     }
     return newArray
   }
-
-  const avgRating = 5.0 // Since all real reviews are positive 5-star style
 
   useEffect(() => {
     setShuffledTestimonials(shuffle(testimonials))
   }, [])
 
   const languages = useMemo(() => {
-    const langs = new Set(testimonials.map(t => t.language).filter(Boolean))
+    const langs = new Set(testimonials.map((t) => t.language).filter(Boolean))
     return ['All', ...Array.from(langs).sort()]
   }, [])
 
   const filteredTestimonials = useMemo(() => {
-    return shuffledTestimonials.filter(t => {
-      const matchesSearch = t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        t.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        t.role.toLowerCase().includes(searchQuery.toLowerCase())
-
+    return shuffledTestimonials.filter((t) => {
+      const q = searchQuery.toLowerCase()
+      const matchesSearch =
+        t.name.toLowerCase().includes(q) ||
+        t.content.toLowerCase().includes(q) ||
+        t.role.toLowerCase().includes(q)
       const matchesLanguage = selectedLanguage === 'All' || t.language === selectedLanguage
-
       return matchesSearch && matchesLanguage
     })
   }, [shuffledTestimonials, searchQuery, selectedLanguage])
@@ -55,45 +59,45 @@ export default function TestimonialsPage() {
       <Navigation />
 
       {/* Header */}
-      <section className="py-20 lg:py-32 bg-gradient-to-b from-primary/5 to-background border-b border-border relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="border-b border-border bg-muted/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <div className="max-w-3xl">
-            <h1 className="text-balance text-5xl sm:text-7xl font-black text-foreground mb-6 tracking-tighter leading-[0.9]">
-              Real People. <br />
-              <span className="text-primary italic">Real Success.</span>
+            <p className="text-sm font-semibold text-primary mb-3">Success stories</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.05]">
+              Real people. <span className="text-primary">Real results.</span>
             </h1>
-            <p className="text-pretty text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              From Dehradun to the world, our students share their transformative journeys in mastering foreign languages.
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              From Dehradun to the world, our students share their journeys in mastering a new language.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Interactive Toolbar */}
-      <section className="sticky top-0 z-30 bg-background/80 backdrop-blur-xl border-b border-border py-4">
+      {/* Toolbar */}
+      <section className="sticky top-16 z-30 bg-background/90 backdrop-blur border-b border-border py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
+          <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
             <div className="relative w-full md:w-96 group">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4 transition-colors group-focus-within:text-primary" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4 group-focus-within:text-primary transition-colors" />
               <Input
                 placeholder="Search by name, role or content..."
-                className="pl-11 h-12 rounded-full border-border focus:ring-primary/20 transition-all bg-muted/30"
+                className="pl-10 h-11 rounded-full bg-muted/50"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
 
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide w-full md:w-auto">
-              <Filter className="w-4 h-4 text-muted-foreground mr-2 flex-shrink-0" />
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
+              <Filter className="w-4 h-4 text-muted-foreground mr-1 flex-shrink-0" />
               {languages.map((lang) => (
                 <button
                   key={lang}
                   onClick={() => setSelectedLanguage(lang)}
-                  className={`px-6 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap border ${selectedLanguage === lang
-                    ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20'
-                    : 'bg-muted/50 text-muted-foreground border-transparent hover:border-primary/50'
-                    }`}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap border ${
+                    selectedLanguage === lang
+                      ? 'bg-primary text-primary-foreground border-primary'
+                      : 'bg-background text-muted-foreground border-border hover:border-primary/50 hover:text-foreground'
+                  }`}
                 >
                   {lang}
                 </button>
@@ -103,46 +107,39 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Stats Summary */}
-      <section className="py-12 bg-muted/20 border-b border-border">
+      {/* Summary stats */}
+      <section className="py-10 bg-muted/40 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="space-y-1">
-              <p className="text-4xl font-black text-foreground tracking-tighter">300+</p>
-              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Global Placements</p>
-            </div>
-            <div className="space-y-1">
-              <p className="text-4xl font-black text-primary tracking-tighter">{avgRating.toFixed(1)}</p>
-              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Average User Rating</p>
-            </div>
-            <div className="space-y-1">
-              <p className="text-4xl font-black text-foreground tracking-tighter">25+</p>
-              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Years of Trust</p>
-            </div>
-            <div className="space-y-1">
-              <p className="text-4xl font-black text-foreground tracking-tighter">100%</p>
-              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Exam Success Rate</p>
-            </div>
-          </div>
+          <dl className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {summaryStats.map((stat) => (
+              <div key={stat.label}>
+                <dt className="text-3xl font-bold text-foreground tabular-nums">{stat.value}</dt>
+                <dd className="mt-1 text-sm text-muted-foreground">{stat.label}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      {/* Testimonials Grid */}
-      <section className="py-20 lg:py-32">
+      {/* Grid */}
+      <section className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredTestimonials.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredTestimonials.map((testimonial) => (
                 <TestimonialCard key={testimonial.id} {...testimonial} />
               ))}
             </div>
           ) : (
-            <div className="text-center py-40 border-2 border-dashed border-border rounded-3xl">
-              <p className="text-muted-foreground text-lg font-medium">No success stories found matching your criteria.</p>
+            <div className="text-center py-24 border border-dashed border-border rounded-xl">
+              <p className="text-muted-foreground">No stories match your criteria.</p>
               <Button
                 variant="link"
-                className="mt-4 text-primary font-bold"
-                onClick={() => { setSearchQuery(''); setSelectedLanguage('All') }}
+                className="mt-2 text-primary"
+                onClick={() => {
+                  setSearchQuery('')
+                  setSelectedLanguage('All')
+                }}
               >
                 Clear all filters
               </Button>
@@ -151,19 +148,27 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Join Section */}
-      <section className="py-20 lg:py-40 bg-foreground text-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none">
-            Become Our Next <span className="text-primary italic">Success</span> Story.
+      {/* Join */}
+      <section className="py-20 lg:py-28 bg-foreground text-background">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+            Become our next success story
           </h2>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="px-12 py-5 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-black uppercase text-sm tracking-widest transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-primary/40">
-              Get Started Today
-            </button>
-            <button className="px-12 py-5 border-2 border-background/20 hover:border-primary hover:text-primary rounded-full font-black uppercase text-sm tracking-widest transition-all">
-              Free Consultation
-            </button>
+          <p className="mt-4 text-lg text-background/70">
+            Book a free assessment and start your language journey with us.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+            <Button size="lg" asChild>
+              <Link href="/contact">Get Started Today</Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="bg-transparent border-background/30 text-background hover:bg-background/10 hover:text-background"
+              asChild
+            >
+              <Link href="/contact">Free Consultation</Link>
+            </Button>
           </div>
         </div>
       </section>
