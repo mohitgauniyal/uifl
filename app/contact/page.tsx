@@ -5,27 +5,23 @@ import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
-import { Phone, MapPin, Clock, Check } from 'lucide-react'
+import { siteConfig } from '@/lib/site'
+import { Phone, MapPin, Clock, Check, MessageCircle } from 'lucide-react'
+
+// Free, no-backend form delivery. Get an access key at https://web3forms.com
+// (enter your email, they send a key) and put it in .env.local as
+// NEXT_PUBLIC_WEB3FORMS_KEY. Submissions then arrive in your inbox.
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY
+
+const whatsappNumber = siteConfig.whatsapp.replace(/\D/g, '')
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+  "Hi, I'd like to know more about your language courses.",
+)}`
 
 const infoCards = [
-  {
-    icon: Phone,
-    title: 'Call us',
-    meta: 'Available 9 AM – 8 PM, Mon–Sun',
-    lines: ['+91 97246 40763', '+91 98798 78975'],
-  },
-  {
-    icon: MapPin,
-    title: 'Visit us',
-    meta: 'Our centre',
-    lines: ['1/4, Rajpur Road', 'Dehradun – 248001', 'Uttarakhand, India'],
-  },
-  {
-    icon: Clock,
-    title: 'Working hours',
-    meta: 'Monday – Sunday',
-    lines: ['9:00 AM – 8:00 PM', 'Online classes worldwide'],
-  },
+  { icon: Phone, title: 'Call us', meta: 'Available 9 AM – 8 PM, Mon–Sun', lines: siteConfig.phone },
+  { icon: MapPin, title: 'Visit us', meta: 'Our centre', lines: ['1/4, Rajpur Road', 'Dehradun – 248001', 'Uttarakhand, India'] },
+  { icon: Clock, title: 'Working hours', meta: 'Monday – Sunday', lines: ['9:00 AM – 8:00 PM', 'Online classes worldwide'] },
 ]
 
 const reasons = [
@@ -37,9 +33,12 @@ const reasons = [
   'Discuss your specific goals and challenges',
 ]
 
+type Status = 'idle' | 'submitting' | 'success' | 'error'
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', language: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<Status>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -48,13 +47,38 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => {
-      setFormData({ name: '', email: '', phone: '', language: '', message: '' })
-      setSubmitted(false)
-    }, 3000)
+    const form = e.currentTarget
+
+    if (!WEB3FORMS_KEY) {
+      setStatus('error')
+      setErrorMsg('The form isn’t configured yet. Please call or message us on WhatsApp for now.')
+      return
+    }
+
+    setStatus('submitting')
+    setErrorMsg('')
+    try {
+      const fd = new FormData(form)
+      fd.append('access_key', WEB3FORMS_KEY)
+      fd.append('subject', 'New enquiry from the UIFL website')
+      fd.append('from_name', 'UIFL Website')
+
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
+      const data = await res.json()
+
+      if (data.success) {
+        setStatus('success')
+        setFormData({ name: '', email: '', phone: '', language: '', message: '' })
+      } else {
+        setStatus('error')
+        setErrorMsg(data.message || 'Something went wrong. Please try again.')
+      }
+    } catch {
+      setStatus('error')
+      setErrorMsg('Network error. Please try again, or reach us on WhatsApp.')
+    }
   }
 
   const inputClass =
@@ -98,6 +122,9 @@ export default function ContactPage() {
             <div>
               <h2 className="text-2xl font-bold text-foreground mb-6">Send us a message</h2>
               <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Honeypot — hidden from users, catches bots */}
+                <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1.5">Your name</label>
                   <input type="text" name="name" value={formData.name} onChange={handleChange} required className={inputClass} placeholder="Your full name" />
@@ -118,14 +145,14 @@ export default function ContactPage() {
                   <label className="block text-sm font-medium text-foreground mb-1.5">Language of interest</label>
                   <select name="language" value={formData.language} onChange={handleChange} required className={inputClass}>
                     <option value="">Select a language</option>
-                    <option value="french">French</option>
-                    <option value="german">German</option>
-                    <option value="spanish">Spanish</option>
-                    <option value="russian">Russian</option>
-                    <option value="english">English</option>
-                    <option value="japanese">Japanese</option>
-                    <option value="chinese">Chinese</option>
-                    <option value="multiple">Multiple languages</option>
+                    <option value="French">French</option>
+                    <option value="German">German</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Russian">Russian</option>
+                    <option value="English">English</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Multiple languages">Multiple languages</option>
                   </select>
                 </div>
 
@@ -134,20 +161,42 @@ export default function ContactPage() {
                   <textarea name="message" value={formData.message} onChange={handleChange} required rows={5} className={`${inputClass} resize-none`} placeholder="Tell us about your language learning goals..." />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full">
-                  {submitted ? 'Message sent!' : 'Send message'}
+                <Button type="submit" size="lg" className="w-full" disabled={status === 'submitting'}>
+                  {status === 'submitting' ? 'Sending…' : status === 'success' ? 'Message sent!' : 'Send message'}
                 </Button>
 
-                {submitted && (
+                {status === 'success' && (
                   <div className="p-4 rounded-md bg-accent border border-primary/20 text-foreground">
                     <p className="font-semibold text-sm">Thank you for reaching out!</p>
                     <p className="text-sm text-muted-foreground">We&apos;ll get back to you within 24 hours.</p>
+                  </div>
+                )}
+                {status === 'error' && (
+                  <div className="p-4 rounded-md bg-destructive/10 border border-destructive/30 text-foreground">
+                    <p className="font-semibold text-sm">Couldn&apos;t send your message.</p>
+                    <p className="text-sm text-muted-foreground">{errorMsg}</p>
                   </div>
                 )}
               </form>
             </div>
 
             <div className="space-y-8">
+              {/* WhatsApp — instant, no form */}
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 rounded-xl border border-border bg-card p-6 hover:border-primary/40 transition-colors"
+              >
+                <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center shrink-0">
+                  <MessageCircle size={22} className="text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Prefer WhatsApp?</h3>
+                  <p className="text-sm text-muted-foreground">Message us and we&apos;ll reply quickly.</p>
+                </div>
+              </a>
+
               <div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Why contact us?</h3>
                 <ul className="space-y-3">
@@ -166,13 +215,6 @@ export default function ContactPage() {
                 <h3 className="font-semibold text-foreground">Response time</h3>
                 <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
                   We typically respond within 24 hours during business hours. For urgent matters, please call us directly.
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-border bg-card p-6">
-                <h3 className="font-semibold text-foreground">Online classes available</h3>
-                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                  Can&apos;t visit us in Dehradun? We offer live, interactive online classes for students worldwide.
                 </p>
               </div>
             </div>
