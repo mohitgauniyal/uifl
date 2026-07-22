@@ -20,15 +20,6 @@ const stats = [
   { icon: Award, label: 'Success rate', value: '95%+' },
 ]
 
-const timeline = [
-  { year: '1998', title: 'Foundation', description: 'Unique Institute of Foreign Languages was established in Dehradun, starting with French and Spanish courses.' },
-  { year: '2005', title: 'Expansion to new languages', description: 'Added German, Russian and English programs, with exam-preparation courses aligned to international boards.' },
-  { year: '2010', title: 'Online learning launch', description: 'Pioneered online language learning in the region, making quality education accessible across India and beyond.' },
-  { year: '2015', title: 'Japanese & Chinese programs', description: 'Introduced Japanese (JLPT) and Mandarin Chinese (HSK) to meet growing demand for Asian languages.' },
-  { year: '2018', title: '5,000+ students milestone', description: 'Trained our 5,000th student while maintaining a 95%+ success rate in international exams.' },
-  { year: '2023', title: 'Modern facilities & faculty', description: 'Upgraded to modern classroom facilities and expanded our team of certified, native-speaking instructors.' },
-]
-
 const values = [
   { title: 'Excellence', description: 'We hold the highest standards in teaching, curriculum design and student outcomes.' },
   { title: 'Accessibility', description: 'Quality education for everyone, through flexible timing and online options.' },
@@ -90,34 +81,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-20 lg:py-24 bg-muted/40 border-y border-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <p className="text-sm font-semibold text-primary mb-2">Our journey</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">A quarter century of growth</h2>
-          </div>
-
-          <div className="space-y-8">
-            {timeline.map((milestone) => (
-              <div key={milestone.year} className="flex gap-6 sm:gap-8 pb-8 border-b border-border last:border-0">
-                <div className="shrink-0">
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full border border-primary/30 bg-card text-primary font-bold">
-                    {milestone.year}
-                  </div>
-                </div>
-                <div className="flex-1 pt-1">
-                  <h3 className="text-lg font-semibold text-foreground mb-1">{milestone.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{milestone.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Director's message */}
-      <section className="py-20 lg:py-24 bg-background">
+      <section className="py-20 lg:py-24 bg-background border-t border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 items-start">
             <div className="lg:col-span-1">
@@ -175,7 +140,6 @@ export default function AboutPage() {
                   <MediaFrame aspect="aspect-[16/10]" label={`${value.title} — photo`} />
                 </div>
                 <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
-                  <p className="font-mono text-sm text-primary mb-2">{String(i + 1).padStart(2, '0')}</p>
                   <h3 className="text-2xl font-bold text-foreground">{value.title}</h3>
                   <p className="mt-3 text-lg text-muted-foreground leading-relaxed">{value.description}</p>
                 </div>

@@ -1,98 +1,51 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Check, Phone, MapPin, Clock, Globe } from 'lucide-react'
+import { siteConfig } from '@/lib/site'
+import { ArrowRight, Phone, MapPin, MessageCircle } from 'lucide-react'
 
-const contacts = [
-  {
-    icon: Phone,
-    title: 'Call us',
-    meta: 'Daily, 9 AM – 8 PM',
-    lines: ['+91 97246 40763', '+91 98798 78975'],
-  },
-  {
-    icon: MapPin,
-    title: 'Visit us',
-    meta: 'Dehradun centre',
-    lines: ['1/4, Rajpur Road', 'Dehradun – 248001'],
-  },
-  {
-    icon: Clock,
-    title: 'Hours',
-    meta: 'Monday – Sunday',
-    lines: ['9:00 AM – 8:00 PM'],
-  },
-  {
-    icon: Globe,
-    title: 'Online classes',
-    meta: 'From anywhere',
-    lines: ['Live & interactive', 'Available worldwide'],
-  },
-]
+const whatsappLink = `https://wa.me/${siteConfig.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(
+  "Hi, I'd like to know more about your language courses.",
+)}`
 
 export default function CallToAction() {
   return (
-    <section className="py-20 lg:py-28 bg-background border-t border-border">
+    <section className="py-16 lg:py-20 bg-muted/40 border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Left */}
-          <div>
-            <p className="text-sm font-semibold text-primary mb-3">Take the next step</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-              Ready to start learning?
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Book a free assessment and we&apos;ll recommend the right language,
-              level and format for your goals.
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+          <div className="max-w-xl">
+            <p className="text-sm font-semibold text-primary mb-2">Take the next step</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Ready to start learning?</h2>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Book a free assessment and we&apos;ll recommend the right language, level and format for your goals.
             </p>
-
-            <ul className="mt-8 space-y-3">
-              {[
-                'Free consultation & level assessment',
-                'A learning plan matched to your goals',
-                'Flexible batch and online options',
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                    <Check size={13} className="text-primary" />
-                  </span>
-                  <span className="text-foreground">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Button size="lg" className="px-6" asChild>
-                <Link href="/contact">
-                  Start Learning Today
-                  <ArrowRight size={18} className="ml-2" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="px-6" asChild>
-                <Link href="/courses">Browse Courses</Link>
-              </Button>
-            </div>
           </div>
-
-          {/* Right: contact cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {contacts.map((c) => {
-              const Icon = c.icon
-              return (
-                <div key={c.title} className="rounded-xl border border-border bg-card p-6">
-                  <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center mb-4">
-                    <Icon size={20} className="text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground">{c.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-0.5">{c.meta}</p>
-                  <div className="mt-3 pt-3 border-t border-border space-y-1">
-                    {c.lines.map((line) => (
-                      <p key={line} className="text-sm text-foreground">{line}</p>
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
+          <div className="flex flex-col sm:flex-row gap-3 lg:shrink-0">
+            <Button size="lg" asChild>
+              <Link href="/contact">
+                Book a Free Assessment
+                <ArrowRight size={18} className="ml-2" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/courses">Browse Courses</Link>
+            </Button>
           </div>
+        </div>
+
+        {/* Slim contact line */}
+        <div className="mt-8 pt-6 border-t border-border flex flex-wrap items-center gap-x-8 gap-y-2 text-sm text-muted-foreground">
+          <a href={`tel:${siteConfig.phone[0].replace(/\s/g, '')}`} className="inline-flex items-center gap-2 hover:text-foreground transition-colors">
+            <Phone size={15} className="text-primary" />
+            {siteConfig.phone[0]}
+          </a>
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-foreground transition-colors">
+            <MessageCircle size={15} className="text-primary" />
+            WhatsApp
+          </a>
+          <span className="inline-flex items-center gap-2">
+            <MapPin size={15} className="text-primary" />
+            Rajpur Road, Dehradun
+          </span>
         </div>
       </div>
     </section>

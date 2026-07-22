@@ -12,13 +12,6 @@ import { Search, Filter } from 'lucide-react'
 
 const testimonials = testimonialsData as any[]
 
-const summaryStats = [
-  { value: '300+', label: 'Global placements' },
-  { value: '5.0', label: 'Average rating' },
-  { value: '25+', label: 'Years of trust' },
-  { value: '95%', label: 'Exam success rate' },
-]
-
 export default function TestimonialsPage() {
   const [shuffledTestimonials, setShuffledTestimonials] = useState<any[]>([])
   const [searchQuery, setSearchQuery] = useState('')
@@ -104,20 +97,6 @@ export default function TestimonialsPage() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Summary stats */}
-      <section className="py-10 bg-muted/40 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <dl className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {summaryStats.map((stat) => (
-              <div key={stat.label}>
-                <dt className="text-3xl font-bold text-foreground tabular-nums">{stat.value}</dt>
-                <dd className="mt-1 text-sm text-muted-foreground">{stat.label}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 

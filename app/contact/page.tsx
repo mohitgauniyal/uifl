@@ -142,8 +142,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Language of interest</label>
-                  <select name="language" value={formData.language} onChange={handleChange} required className={inputClass}>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">
+                    Language of interest <span className="text-muted-foreground font-normal">(optional)</span>
+                  </label>
+                  <select name="language" value={formData.language} onChange={handleChange} className={inputClass}>
                     <option value="">Select a language</option>
                     <option value="French">French</option>
                     <option value="German">German</option>

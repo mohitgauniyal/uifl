@@ -63,6 +63,27 @@ const languageData: Record<string, any> = {
   },
 }
 
+const levelSummaries: Record<string, string> = {
+  A1: 'Understand and use everyday expressions and very basic phrases to introduce yourself and handle simple, concrete needs.',
+  A2: 'Communicate in simple, routine tasks and describe your background, immediate environment and matters of immediate need.',
+  B1: 'Handle most situations while travelling, describe experiences and events, and give brief reasons and explanations.',
+  B2: 'Interact with fluency and spontaneity, and produce clear, detailed text on a wide range of subjects.',
+  C1: 'Express ideas fluently and spontaneously, and use the language flexibly for social, academic and professional purposes.',
+  N5: 'Understand basic Japanese — simple phrases, hiragana, katakana and everyday expressions.',
+  N4: 'Understand basic Japanese used in everyday situations, with essential kanji and grammar.',
+  N3: 'Understand Japanese used in everyday situations, bridging basic and advanced use.',
+  N2: 'Understand Japanese used in a variety of everyday and some formal or work situations.',
+  N1: 'Understand Japanese across a broad range of situations, including abstract and complex topics.',
+  HSK1: 'Understand and use very simple Chinese words and phrases to meet basic needs.',
+  HSK2: 'Communicate simply and directly on familiar, everyday topics.',
+  HSK3: 'Handle most situations in daily life, study and work in Chinese.',
+  HSK4: 'Discuss a wide range of topics and communicate fluently with native speakers.',
+  HSK5: 'Read newspapers and magazines, enjoy films, and give full, structured speeches in Chinese.',
+}
+
+const levelSummary = (code: string) =>
+  levelSummaries[code] ?? 'Structured learning outcomes appropriate to this level.'
+
 export default function LanguagePage({ params }: { params: Promise<{ language: string }> }) {
   const { language } = use(params)
   const [selectedLevel, setSelectedLevel] = useState(0)
@@ -109,22 +130,14 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
             <MediaFrame aspect="aspect-[4/3]" label={`${data.language} classroom`} />
           </div>
 
-          {/* Stats */}
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {data.stats.map((stat: any, idx: number) => {
-              const Icon = stat.icon
-              return (
-                <div key={idx} className="rounded-xl border border-border bg-card p-6 flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center shrink-0">
-                    <Icon size={22} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-foreground tabular-nums">{stat.label}</p>
-                    <p className="text-sm text-muted-foreground">{stat.value}</p>
-                  </div>
-                </div>
-              )
-            })}
+          {/* Stats — slim inline row */}
+          <div className="mt-10 flex flex-wrap items-baseline gap-x-8 gap-y-2 border-t border-border pt-6">
+            {data.stats.map((stat: any, idx: number) => (
+              <div key={idx} className="flex items-baseline gap-2">
+                <span className="text-xl font-bold text-foreground tabular-nums">{stat.label}</span>
+                <span className="text-sm text-muted-foreground">{stat.value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -137,28 +150,47 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Proficiency levels</h2>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          {/* Level stepper */}
+          <div className="flex flex-wrap gap-2">
             {data.levels.map((level: any, idx: number) => {
               const active = selectedLevel === idx
               return (
                 <button
                   key={idx}
                   onClick={() => setSelectedLevel(idx)}
-                  className={`rounded-xl border p-6 text-center transition-colors ${
+                  className={`px-5 py-2.5 rounded-lg border text-sm font-semibold transition-colors ${
                     active
-                      ? 'border-primary bg-accent'
-                      : 'border-border bg-card hover:border-primary/40'
+                      ? 'border-primary bg-primary text-primary-foreground'
+                      : 'border-border bg-card text-foreground hover:border-primary/40'
                   }`}
                 >
-                  <p className={`text-3xl font-bold ${active ? 'text-primary' : 'text-foreground'}`}>{level.code}</p>
-                  <h3 className="mt-3 text-sm font-semibold text-foreground">{level.title}</h3>
-                  <p className="mt-1 text-xs text-muted-foreground">{level.duration}</p>
-                  {active && (
-                    <p className="mt-3 pt-3 border-t border-border text-xs text-muted-foreground">{level.topics} topics</p>
-                  )}
+                  {level.code}
                 </button>
               )
             })}
+          </div>
+
+          {/* Selected level detail */}
+          <div className="mt-6 rounded-xl border border-border bg-card p-8 lg:p-10">
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+              <h3 className="text-2xl font-bold text-foreground">
+                {data.levels[selectedLevel].code} · {data.levels[selectedLevel].title}
+              </h3>
+              <span className="text-sm text-muted-foreground">
+                Approx. {data.levels[selectedLevel].duration}
+              </span>
+            </div>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              {levelSummary(data.levels[selectedLevel].code)}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground border-t border-border pt-5">
+              <span>
+                <span className="font-semibold text-foreground">{data.levels[selectedLevel].topics}</span> core topics
+              </span>
+              <span>
+                Duration · <span className="font-semibold text-foreground">{data.levels[selectedLevel].duration}</span>
+              </span>
+            </div>
           </div>
         </div>
       </section>
