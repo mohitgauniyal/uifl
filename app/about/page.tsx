@@ -4,7 +4,7 @@ import { PageHeader } from '@/components/page-header'
 import { MediaFrame } from '@/components/media-frame'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { Trophy, Users, Globe, Award, Star, Accessibility, UserCheck, Handshake } from 'lucide-react'
+import { Trophy, Users, Globe, Award } from 'lucide-react'
 
 export const metadata = {
   title: 'About Us — 25+ Years of Language Education in Dehradun',
@@ -30,10 +30,10 @@ const timeline = [
 ]
 
 const values = [
-  { icon: Star, title: 'Excellence', description: 'We hold the highest standards in teaching, curriculum design and student outcomes.' },
-  { icon: Accessibility, title: 'Accessibility', description: 'Quality education for everyone, through flexible timing and online options.' },
-  { icon: UserCheck, title: 'Personalisation', description: 'Every student is unique. We tailor our approach to individual goals and learning styles.' },
-  { icon: Handshake, title: 'Cultural respect', description: 'Language learning includes understanding and respecting the culture behind it.' },
+  { title: 'Excellence', description: 'We hold the highest standards in teaching, curriculum design and student outcomes.' },
+  { title: 'Accessibility', description: 'Quality education for everyone, through flexible timing and online options.' },
+  { title: 'Personalisation', description: 'Every student is unique. We tailor our approach to individual goals and learning styles.' },
+  { title: 'Cultural respect', description: 'Language learning includes understanding and respecting the culture behind it.' },
 ]
 
 export default function AboutPage() {
@@ -168,19 +168,19 @@ export default function AboutPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Our core values</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value) => {
-              const Icon = value.icon
-              return (
-                <div key={value.title} className="rounded-xl border border-border bg-card p-8">
-                  <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center mb-5">
-                    <Icon size={22} className="text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">{value.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
+          <div className="space-y-12 lg:space-y-16">
+            {values.map((value, i) => (
+              <div key={value.title} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
+                  <MediaFrame aspect="aspect-[16/10]" label={`${value.title} — photo`} />
                 </div>
-              )
-            })}
+                <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
+                  <p className="font-mono text-sm text-primary mb-2">{String(i + 1).padStart(2, '0')}</p>
+                  <h3 className="text-2xl font-bold text-foreground">{value.title}</h3>
+                  <p className="mt-3 text-lg text-muted-foreground leading-relaxed">{value.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

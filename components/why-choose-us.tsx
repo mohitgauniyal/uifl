@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react'
+import { EditorialStatement } from '@/components/editorial-statement'
 
 const pillars = [
   {
@@ -28,28 +29,16 @@ export default function WhyChooseUs() {
   return (
     <section className="py-20 lg:py-28 bg-muted/40 border-y border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-sm font-semibold text-primary mb-4">Why Unique Institute</p>
-
-        {/* Editorial statement */}
-        <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-[1.15] max-w-4xl">
-          Small batches, certified native faculty, and a curriculum built around the exams that matter —
-          <span className="text-primary"> with results to prove it.</span>
-        </p>
-
-        {/* Three supporting pillars — clean columns, single hairline divider */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
-          {pillars.map((pillar, i) => (
-            <div
-              key={pillar.title}
-              className={`pt-6 border-t border-border md:pt-0 md:border-t-0 md:pl-8 md:border-l ${
-                i === 0 ? 'md:pl-0 md:border-l-0' : ''
-              }`}
-            >
-              <h3 className="font-semibold text-foreground">{pillar.title}</h3>
-              <p className="mt-2 text-muted-foreground leading-relaxed">{pillar.description}</p>
-            </div>
-          ))}
-        </div>
+        <EditorialStatement
+          eyebrow="Why Unique Institute"
+          statement={
+            <>
+              Small batches, certified native faculty, and a curriculum built around the exams that
+              matter —<span className="text-primary"> with results to prove it.</span>
+            </>
+          }
+          pillars={pillars}
+        />
 
         {/* What's included */}
         <div className="mt-16 rounded-xl border border-border bg-card p-8 lg:p-10">

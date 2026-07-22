@@ -4,8 +4,8 @@ import { PageHeader } from '@/components/page-header'
 import { MediaFrame } from '@/components/media-frame'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { Volume2, GraduationCap, FileCheck, Lightbulb } from 'lucide-react'
 import { Flag } from '@/components/flag'
+import { FeatureList } from '@/components/feature-list'
 
 export const metadata = {
   title: 'Our Faculty — Certified Language Instructors in Dehradun',
@@ -26,10 +26,10 @@ const faculty = [
 ]
 
 const highlights = [
-  { icon: Volume2, title: 'Native speakers', description: 'Authentic pronunciation and cultural understanding in every class.' },
-  { icon: GraduationCap, title: 'Certified & qualified', description: 'Advanced degrees and professional certifications in language education.' },
-  { icon: FileCheck, title: 'Exam experts', description: 'Specialised training in DELF, Goethe, JLPT, HSK, TOEFL and IELTS.' },
-  { icon: Lightbulb, title: 'Dedicated to students', description: 'Personalised attention, regular feedback and genuine commitment.' },
+  { title: 'Native speakers', description: 'Authentic pronunciation and cultural understanding in every class.' },
+  { title: 'Certified & qualified', description: 'Advanced degrees and professional certifications in language education.' },
+  { title: 'Exam experts', description: 'Specialised training in DELF, Goethe, JLPT, HSK, TOEFL and IELTS.' },
+  { title: 'Dedicated to students', description: 'Personalised attention, regular feedback and genuine commitment.' },
 ]
 
 function getInitials(name: string) {
@@ -130,25 +130,11 @@ export default function FacultyPage() {
       {/* Highlights */}
       <section className="py-20 lg:py-24 bg-muted/40 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <p className="text-sm font-semibold text-primary mb-2">What sets them apart</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Why our faculty stands out</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {highlights.map((h) => {
-              const Icon = h.icon
-              return (
-                <div key={h.title} className="rounded-xl border border-border bg-card p-8">
-                  <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center mb-5">
-                    <Icon size={22} className="text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">{h.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{h.description}</p>
-                </div>
-              )
-            })}
-          </div>
+          <FeatureList
+            eyebrow="What sets them apart"
+            title="Why our faculty stands out"
+            items={highlights}
+          />
         </div>
       </section>
 

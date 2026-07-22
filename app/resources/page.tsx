@@ -5,17 +5,18 @@ import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
-import { PlayCircle, BookOpen, ListChecks, FileText, Headphones, PenLine, MessagesSquare } from 'lucide-react'
+import { PlayCircle } from 'lucide-react'
 import { VideoCard } from '@/components/resources/video-card'
+import { FeatureList } from '@/components/feature-list'
 import youtubeVideos from '@/lib/data/youtube-videos.json'
 
 const learningResources = [
-  { icon: BookOpen, title: 'Grammar guides', description: 'Comprehensive grammatical explanations with examples for all levels.' },
-  { icon: ListChecks, title: 'Vocabulary lists', description: 'Organised vocabulary by topic, level and frequency.' },
-  { icon: FileText, title: 'Reading materials', description: 'Level-appropriate texts, articles and short stories.' },
-  { icon: Headphones, title: 'Audio lessons', description: 'Native-speaker pronunciation and listening comprehension.' },
-  { icon: PenLine, title: 'Writing samples', description: 'Example essays, letters and compositions with feedback.' },
-  { icon: MessagesSquare, title: 'Conversation scripts', description: 'Realistic dialogues for everyday situations.' },
+  { title: 'Grammar guides', description: 'Comprehensive grammatical explanations with examples for all levels.' },
+  { title: 'Vocabulary lists', description: 'Organised vocabulary by topic, level and frequency.' },
+  { title: 'Reading materials', description: 'Level-appropriate texts, articles and short stories.' },
+  { title: 'Audio lessons', description: 'Native-speaker pronunciation and listening comprehension.' },
+  { title: 'Writing samples', description: 'Example essays, letters and compositions with feedback.' },
+  { title: 'Conversation scripts', description: 'Realistic dialogues for everyday situations.' },
 ]
 
 export default function ResourcesPage() {
@@ -133,28 +134,12 @@ export default function ResourcesPage() {
       {/* Learning materials */}
       <section className="py-20 lg:py-24 bg-muted/40 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <p className="text-sm font-semibold text-primary mb-2">Self-study</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Learning materials</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {learningResources.map((resource) => {
-              const Icon = resource.icon
-              return (
-                <div key={resource.title} className="rounded-xl border border-border bg-card p-8">
-                  <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center mb-5">
-                    <Icon size={22} className="text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">{resource.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{resource.description}</p>
-                  <div className="mt-4 pt-4 border-t border-border">
-                    <span className="text-xs font-medium text-muted-foreground">All languages</span>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <FeatureList
+            eyebrow="Self-study"
+            title="Learning materials"
+            intro="Available across all seven languages, for practice between classes."
+            items={learningResources}
+          />
         </div>
       </section>
 

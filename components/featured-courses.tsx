@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, ArrowUpRight, BookOpen, Mic2, Users, Target } from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Flag } from '@/components/flag'
+import { FeatureList } from '@/components/feature-list'
 
 const languages = [
   { id: 'french', name: 'French', greeting: 'Bonjour', exam: 'DELF · DALF' },
@@ -17,22 +18,18 @@ const formats = [
   {
     title: 'Exam Preparation',
     description: 'Targeted DELF, Goethe, DELE, JLPT, HSK, IELTS & TOEFL preparation with mock tests and structured feedback.',
-    icon: Target,
   },
   {
     title: 'Conversational Fluency',
     description: 'Speaking-first sessions that build real-world communication for travel, work and daily life.',
-    icon: Mic2,
   },
   {
     title: 'Group Classes',
     description: 'Small, level-matched batches of 6–8 students with interactive, guided practice.',
-    icon: Users,
   },
   {
     title: 'One-on-One Training',
     description: 'Personalised learning plans built around your goals, schedule and target certification.',
-    icon: BookOpen,
   },
 ]
 
@@ -88,26 +85,13 @@ export default function FeaturedCourses() {
         </div>
 
         {/* Formats — sticky heading + list */}
-        <div className="mt-24 grid grid-cols-1 lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-4">
-            <div className="lg:sticky lg:top-32">
-              <p className="text-sm font-semibold text-primary mb-2">Ways to learn</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Formats built around your goal</h2>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Choose the track that fits how you learn and what you&apos;re working toward.
-              </p>
-            </div>
-          </div>
-          <div className="lg:col-span-8">
-            <dl className="divide-y divide-border border-t border-border">
-              {formats.map((format) => (
-                <div key={format.title} className="py-6 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-6">
-                  <dt className="font-semibold text-foreground">{format.title}</dt>
-                  <dd className="sm:col-span-2 text-muted-foreground leading-relaxed">{format.description}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+        <div className="mt-24">
+          <FeatureList
+            eyebrow="Ways to learn"
+            title="Formats built around your goal"
+            intro="Choose the track that fits how you learn and what you're working toward."
+            items={formats}
+          />
         </div>
 
         <div className="mt-12">

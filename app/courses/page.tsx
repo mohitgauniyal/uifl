@@ -3,8 +3,9 @@ import Footer from '@/components/footer'
 import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { ArrowRight, ArrowUpRight, Target, MessageCircle, Briefcase, GraduationCap } from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Flag } from '@/components/flag'
+import { FeatureList } from '@/components/feature-list'
 
 export const metadata = {
   title: 'Language Courses in Dehradun',
@@ -24,10 +25,10 @@ const languages = [
 ]
 
 const tracks = [
-  { title: 'Exam Preparation', description: 'Focused training for international certifications with mock tests.', icon: Target },
-  { title: 'Conversation & Fluency', description: 'Real-world communication skills and cultural context.', icon: MessageCircle },
-  { title: 'Business Communication', description: 'Professional vocabulary and corporate interaction.', icon: Briefcase },
-  { title: 'Kids & Teens', description: 'Age-appropriate programs for younger learners.', icon: GraduationCap },
+  { title: 'Exam Preparation', description: 'Focused training for international certifications with mock tests.' },
+  { title: 'Conversation & Fluency', description: 'Real-world communication skills and cultural context.' },
+  { title: 'Business Communication', description: 'Professional vocabulary and corporate interaction.' },
+  { title: 'Kids & Teens', description: 'Age-appropriate programs for younger learners.' },
 ]
 
 export default function CoursesPage() {
@@ -44,25 +45,7 @@ export default function CoursesPage() {
       {/* Learning tracks */}
       <section className="py-20 lg:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <p className="text-sm font-semibold text-primary mb-2">How we teach</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Multiple learning paths</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {tracks.map((track) => {
-              const Icon = track.icon
-              return (
-                <div key={track.title} className="rounded-xl border border-border bg-card p-7 hover:border-primary/40 transition-colors">
-                  <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center mb-5">
-                    <Icon size={22} className="text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">{track.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{track.description}</p>
-                </div>
-              )
-            })}
-          </div>
+          <FeatureList eyebrow="How we teach" title="Multiple learning paths" items={tracks} />
         </div>
       </section>
 

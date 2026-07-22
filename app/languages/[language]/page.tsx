@@ -6,8 +6,9 @@ import { PageHeader } from '@/components/page-header'
 import { MediaFrame } from '@/components/media-frame'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { ArrowRight, Clock, Users, Award, Zap, BookOpen } from 'lucide-react'
+import { ArrowRight, Users, Award, Zap } from 'lucide-react'
 import { Flag } from '@/components/flag'
+import { FeatureList } from '@/components/feature-list'
 import { use, useState } from 'react'
 
 const languageData: Record<string, any> = {
@@ -165,30 +166,15 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
       {/* Learning tracks */}
       <section className="py-20 lg:py-24 bg-muted/40 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <p className="text-sm font-semibold text-primary mb-2">Learning options</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Specialised tracks</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {data.tracks.map((track: any, idx: number) => (
-              <div key={idx} className="group rounded-xl border border-border bg-card p-8 hover:border-primary/40 transition-colors">
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center shrink-0">
-                    <BookOpen size={20} className="text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{track.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{track.desc}</p>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground pt-4 mt-4 border-t border-border">
-                      <Clock size={16} />
-                      <span>{track.duration}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <FeatureList
+            eyebrow="Learning options"
+            title="Specialised tracks"
+            items={data.tracks.map((t: any) => ({
+              title: t.title,
+              description: t.desc,
+              meta: `Duration · ${t.duration}`,
+            }))}
+          />
         </div>
       </section>
 

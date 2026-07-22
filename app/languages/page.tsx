@@ -3,8 +3,9 @@ import Footer from '@/components/footer'
 import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { ArrowRight, ArrowUpRight, Globe, Zap, Users, Award, BookOpen, Plane } from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Flag } from '@/components/flag'
+import { EditorialStatement } from '@/components/editorial-statement'
 
 export const metadata = {
   title: 'Foreign Language Programs in Dehradun',
@@ -23,13 +24,10 @@ const languages = [
   { id: 'chinese', name: 'Chinese', greeting: '你好', nativeSpeakers: '1.1 Billion', countries: '3 countries', description: 'The most spoken language in the world, vital for understanding Asian markets.', certifications: ['HSK'], difficulty: 'Advanced', learningTime: '1500–1800 hrs' },
 ]
 
-const reasons = [
-  { icon: Globe, title: 'Global reach', description: 'Our languages are spoken by over 3 billion people across every continent.' },
-  { icon: Zap, title: 'Career growth', description: 'Multilingual professionals access international job markets and higher pay.' },
-  { icon: Users, title: 'Cultural connection', description: 'Understand the histories, traditions and perspectives behind each language.' },
-  { icon: Award, title: 'Certifications', description: 'Internationally recognised credentials — DELF, Goethe, JLPT, HSK and more.' },
-  { icon: BookOpen, title: 'Academic access', description: 'Reach world-class literature, research and resources in the original language.' },
-  { icon: Plane, title: 'Travel & experience', description: 'Connect authentically with locals and navigate new places with confidence.' },
+const openings = [
+  { title: 'Career growth', description: 'Multilingual professionals access international job markets and higher pay.' },
+  { title: 'Recognised certifications', description: 'DELF, Goethe, JLPT, HSK and more — credentials that open doors globally.' },
+  { title: 'Global reach', description: 'Our languages are spoken by over 3 billion people across every continent.' },
 ]
 
 export default function LanguagesPage() {
@@ -99,25 +97,16 @@ export default function LanguagesPage() {
       {/* Why these languages matter */}
       <section className="py-20 lg:py-24 bg-muted/40 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
-            <p className="text-sm font-semibold text-primary mb-2">Why it matters</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">What a language opens up</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {reasons.map((reason) => {
-              const Icon = reason.icon
-              return (
-                <div key={reason.title} className="rounded-xl border border-border bg-card p-8">
-                  <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center mb-5">
-                    <Icon size={22} className="text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">{reason.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{reason.description}</p>
-                </div>
-              )
-            })}
-          </div>
+          <EditorialStatement
+            eyebrow="Why it matters"
+            statement={
+              <>
+                A language is more than a skill — it&apos;s access to careers, recognised
+                certifications and <span className="text-primary">connections across the world.</span>
+              </>
+            }
+            pillars={openings}
+          />
         </div>
       </section>
 
