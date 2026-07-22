@@ -1,35 +1,17 @@
-import { CheckCircle2, Users, BookOpen, Globe, Clock, Award, Check } from 'lucide-react'
+import { Check } from 'lucide-react'
 
-const features = [
+const pillars = [
   {
-    icon: Award,
-    title: 'Expert Faculty',
+    title: 'Certified, native faculty',
     description: 'Native speakers and certified instructors, each with 10+ years of teaching experience.',
   },
   {
-    icon: BookOpen,
-    title: 'Comprehensive Curriculum',
-    description: 'Syllabi aligned to international standards — DELF, Goethe, JLPT, HSK and more.',
+    title: 'Small batches of 6–8',
+    description: 'Level-matched groups so every learner gets genuine individual attention.',
   },
   {
-    icon: Globe,
-    title: 'Online & Classroom',
-    description: 'Join live online classes or attend in person at our Rajpur Road centre in Dehradun.',
-  },
-  {
-    icon: Clock,
-    title: 'Fast-Track Programs',
-    description: 'Intensive tracks for students who need to reach a level or clear an exam quickly.',
-  },
-  {
-    icon: Users,
-    title: 'Small Batch Sizes',
-    description: 'An average of 6–8 students per batch so every learner gets individual attention.',
-  },
-  {
-    icon: CheckCircle2,
-    title: 'Proven Results',
-    description: 'A 95%+ success rate across international certifications, year after year.',
+    title: 'Proven, exam-aligned results',
+    description: 'A 95%+ success rate across DELF, Goethe, DELE, JLPT, HSK, IELTS and more.',
   },
 ]
 
@@ -46,36 +28,31 @@ export default function WhyChooseUs() {
   return (
     <section className="py-20 lg:py-28 bg-muted/40 border-y border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold text-primary mb-2">Why Unique Institute</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-            A quarter century of language education
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Established in 1998, we have trained everyone from school students to
-            working professionals — with a method built on structure, small
-            batches and measurable progress.
-          </p>
-        </div>
+        <p className="text-sm font-semibold text-primary mb-4">Why Unique Institute</p>
 
-        {/* Feature grid */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature) => {
-            const Icon = feature.icon
-            return (
-              <div key={feature.title} className="rounded-xl border border-border bg-card p-7">
-                <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center mb-5">
-                  <Icon size={22} className="text-primary" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
-              </div>
-            )
-          })}
+        {/* Editorial statement */}
+        <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-[1.15] max-w-4xl">
+          Small batches, certified native faculty, and a curriculum built around the exams that matter —
+          <span className="text-primary"> with results to prove it.</span>
+        </p>
+
+        {/* Three supporting pillars — clean columns, single hairline divider */}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
+          {pillars.map((pillar, i) => (
+            <div
+              key={pillar.title}
+              className={`pt-6 border-t border-border md:pt-0 md:border-t-0 md:pl-8 md:border-l ${
+                i === 0 ? 'md:pl-0 md:border-l-0' : ''
+              }`}
+            >
+              <h3 className="font-semibold text-foreground">{pillar.title}</h3>
+              <p className="mt-2 text-muted-foreground leading-relaxed">{pillar.description}</p>
+            </div>
+          ))}
         </div>
 
         {/* What's included */}
-        <div className="mt-8 rounded-xl border border-border bg-card p-8 lg:p-10">
+        <div className="mt-16 rounded-xl border border-border bg-card p-8 lg:p-10">
           <h3 className="font-semibold text-foreground mb-6">Every course includes</h3>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
             {included.map((item) => (

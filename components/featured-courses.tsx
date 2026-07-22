@@ -87,27 +87,26 @@ export default function FeaturedCourses() {
           </Link>
         </div>
 
-        {/* Formats */}
-        <div className="mt-24">
-          <p className="text-sm font-semibold text-primary mb-2">Ways to learn</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-10">Formats built around your goal</h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {formats.map((format) => {
-              const Icon = format.icon
-              return (
-                <div
-                  key={format.title}
-                  className="rounded-xl border border-border bg-card p-8 hover:border-primary/40 transition-colors"
-                >
-                  <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center mb-5">
-                    <Icon size={22} className="text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{format.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{format.description}</p>
+        {/* Formats — sticky heading + list */}
+        <div className="mt-24 grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-32">
+              <p className="text-sm font-semibold text-primary mb-2">Ways to learn</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Formats built around your goal</h2>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                Choose the track that fits how you learn and what you&apos;re working toward.
+              </p>
+            </div>
+          </div>
+          <div className="lg:col-span-8">
+            <dl className="divide-y divide-border border-t border-border">
+              {formats.map((format) => (
+                <div key={format.title} className="py-6 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-6">
+                  <dt className="font-semibold text-foreground">{format.title}</dt>
+                  <dd className="sm:col-span-2 text-muted-foreground leading-relaxed">{format.description}</dd>
                 </div>
-              )
-            })}
+              ))}
+            </dl>
           </div>
         </div>
 
