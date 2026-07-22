@@ -6,6 +6,13 @@ import Link from 'next/link'
 import { ArrowRight, ArrowUpRight, Target, MessageCircle, Briefcase, GraduationCap } from 'lucide-react'
 import { Flag } from '@/components/flag'
 
+export const metadata = {
+  title: 'Language Courses in Dehradun',
+  description:
+    'Explore French, German, Spanish, Japanese, Russian, English and Chinese courses in Dehradun and online — from A1 to fluency, with exam preparation for DELF, Goethe, DELE, JLPT, HSK, IELTS and TOEFL.',
+  alternates: { canonical: '/courses' },
+}
+
 const languages = [
   { id: 'french', name: 'French', greeting: 'Bonjour', description: 'DELF / DALF preparation, conversation and business French.', levels: 'A1 – C1', exam: 'DELF · DALF', students: 240, popular: true },
   { id: 'german', name: 'German', greeting: 'Guten Tag', description: 'Goethe certification, business German and everyday fluency.', levels: 'A1 – C1', exam: 'Goethe', students: 180, popular: true },

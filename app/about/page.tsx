@@ -6,6 +6,13 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Trophy, Users, Globe, Award, Star, Accessibility, UserCheck, Handshake } from 'lucide-react'
 
+export const metadata = {
+  title: 'About Us — 25+ Years of Language Education in Dehradun',
+  description:
+    'Unique Institute of Foreign Languages has taught foreign languages in Dehradun since 1998, with certified faculty, small batches and a 95%+ success rate in international exams.',
+  alternates: { canonical: '/about' },
+}
+
 const stats = [
   { icon: Trophy, label: 'Excellence', value: '25+ years' },
   { icon: Users, label: 'Students', value: '5,000+' },

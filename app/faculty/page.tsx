@@ -7,6 +7,13 @@ import Link from 'next/link'
 import { Volume2, GraduationCap, FileCheck, Lightbulb } from 'lucide-react'
 import { Flag } from '@/components/flag'
 
+export const metadata = {
+  title: 'Our Faculty — Certified Language Instructors in Dehradun',
+  description:
+    'Meet the certified, native-speaking instructors at Unique Institute of Foreign Languages, Dehradun — with an average of 11+ years teaching and exam-preparation experience.',
+  alternates: { canonical: '/faculty' },
+}
+
 const faculty = [
   { name: 'Marie Dupont', photo: undefined, flag: 'french', language: 'French', qualification: 'M.A. French Literature (Sorbonne University)', experience: '12 years', specialization: 'DELF preparation & advanced French', languages: ['French', 'English'] },
   { name: 'Klaus Schmidt', photo: undefined, flag: 'german', language: 'German', qualification: 'Goethe-Institut Certification (Berlin)', experience: '10 years', specialization: 'Business German & CEFR levels', languages: ['German', 'English'] },

@@ -7,8 +7,10 @@ import { ArrowRight, ArrowUpRight, Globe, Zap, Users, Award, BookOpen, Plane } f
 import { Flag } from '@/components/flag'
 
 export const metadata = {
-  title: 'Languages | Unique Institute',
-  description: 'Explore our 7 language programs: French, German, Spanish, Japanese, Russian, English, and Chinese. Certifications, career opportunities and learning time.',
+  title: 'Foreign Language Programs in Dehradun',
+  description:
+    'Seven foreign language programs in Dehradun and online — French, German, Spanish, Japanese, Russian, English and Chinese. Compare certifications, career opportunities and learning time.',
+  alternates: { canonical: '/languages' },
 }
 
 const languages = [
