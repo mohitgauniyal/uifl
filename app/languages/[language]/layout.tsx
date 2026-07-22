@@ -50,9 +50,20 @@ export default async function LanguageLayout({
     },
   }
 
+  const breadcrumbLd = m && {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+      { '@type': 'ListItem', position: 2, name: 'Languages', item: `${siteConfig.url}/languages` },
+      { '@type': 'ListItem', position: 3, name: m.name, item: `${siteConfig.url}/languages/${language}` },
+    ],
+  }
+
   return (
     <>
       {courseLd && <JsonLd data={courseLd} />}
+      {breadcrumbLd && <JsonLd data={breadcrumbLd} />}
       {children}
     </>
   )

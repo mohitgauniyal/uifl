@@ -2,22 +2,22 @@
  * Single source of truth for site/business data.
  * Used by metadata, sitemap, robots and JSON-LD structured data.
  *
- * TODO(owner): replace `url`, `email`, `geo` and `sameAs` with the real
- * production values before launch. Everything else is verified business info.
+ * TODO(owner): refine `geo` to the exact centre coordinates (from your Google
+ * Business Profile) and add the Business Profile / social URLs to `sameAs`.
+ * Keep name/address/phone identical to the Google Business Profile listing.
  */
 export const siteConfig = {
   name: 'Unique Institute of Foreign Languages',
   shortName: 'UIFL',
-  // TODO: replace with the real production domain (no trailing slash).
-  url: 'https://www.uifl.in',
+  url: 'https://uniqueinstituteddn.in',
   tagline: 'Foreign language training that gets you certified',
   description:
     'Foreign language institute in Dehradun since 1998. Classroom & online courses in French, German, Spanish, Japanese, Russian, English and Chinese, with DELF, Goethe, DELE, JLPT, HSK, IELTS and TOEFL exam preparation.',
   foundingYear: '1998',
   phone: ['+91 97246 40763', '+91 98798 78975'],
-  // TODO: add the real public enquiry email if available.
-  email: 'info@uifl.in',
+  email: 'uniqueinstituteddn@gmail.com',
   whatsapp: '+919724640763',
+  priceRange: '₹₹',
   address: {
     street: '1/4, Rajpur Road',
     locality: 'Dehradun',
@@ -29,6 +29,8 @@ export const siteConfig = {
   geo: { latitude: 30.3436, longitude: 78.0765 },
   openingHours: 'Mo-Su 09:00-20:00',
   areaServed: 'Dehradun, Uttarakhand',
+  // TODO: add your Google Business Profile URL and any social profiles here —
+  // it strengthens the link between the site and your verified listing.
   sameAs: ['https://www.youtube.com/@UILF'],
 } as const
 

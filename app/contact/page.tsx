@@ -232,7 +232,7 @@ export default function ContactPage() {
           <div className="rounded-xl border border-border overflow-hidden h-96 bg-card">
             <iframe
               title="Unique Institute location"
-              src="https://maps.google.com/maps?q=Rajpur%20Road%2C%20Dehradun%2C%20Uttarakhand%20248001&z=15&output=embed"
+              src="https://maps.google.com/maps?q=Unique%20Institute%20of%20Foreign%20Languages%2C%20Rajpur%20Road%2C%20Dehradun&z=16&output=embed"
               className="w-full h-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

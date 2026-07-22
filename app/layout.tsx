@@ -63,8 +63,12 @@ const organizationLd = {
   url: siteConfig.url,
   description: siteConfig.description,
   foundingDate: siteConfig.foundingYear,
+  image: `${siteConfig.url}/opengraph-image`,
+  logo: `${siteConfig.url}/apple-icon.png`,
   telephone: siteConfig.phone[0],
   email: siteConfig.email,
+  priceRange: siteConfig.priceRange,
+  currenciesAccepted: 'INR',
   address: {
     '@type': 'PostalAddress',
     streetAddress: siteConfig.address.street,
@@ -79,7 +83,21 @@ const organizationLd = {
     longitude: siteConfig.geo.longitude,
   },
   areaServed: siteConfig.areaServed,
-  openingHours: siteConfig.openingHours,
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '09:00',
+      closes: '20:00',
+    },
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: siteConfig.phone[0],
+    contactType: 'customer service',
+    areaServed: 'IN',
+    availableLanguage: ['English', 'Hindi'],
+  },
   sameAs: siteConfig.sameAs,
   knowsLanguage: ['French', 'German', 'Spanish', 'Japanese', 'Russian', 'English', 'Chinese'],
 }
