@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, ArrowUpRight, BookOpen, Mic2, Users, Target } from 'lucide-react'
+import { Flag } from '@/components/flag'
 
 const languages = [
   { id: 'french', name: 'French', greeting: 'Bonjour', exam: 'DELF · DALF' },
@@ -58,7 +59,7 @@ export default function FeaturedCourses() {
               className="group bg-card p-6 flex flex-col justify-between min-h-44 hover:bg-accent transition-colors"
             >
               <div className="flex items-start justify-between">
-                <span className="text-2xl font-medium text-foreground">{lang.greeting}</span>
+                <Flag code={lang.id} className="h-6 w-9" />
                 <ArrowUpRight
                   size={18}
                   className="text-muted-foreground group-hover:text-primary transition-colors"
@@ -68,7 +69,8 @@ export default function FeaturedCourses() {
                 <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                   {lang.name}
                 </h3>
-                <p className="text-xs text-muted-foreground mt-1">A1–C1 · {lang.exam}</p>
+                <p className="text-sm text-muted-foreground mt-0.5">{lang.greeting}</p>
+                <p className="text-xs text-muted-foreground mt-2">A1–C1 · {lang.exam}</p>
               </div>
             </Link>
           ))}

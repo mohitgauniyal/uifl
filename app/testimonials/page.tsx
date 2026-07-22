@@ -74,7 +74,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Toolbar */}
-      <section className="sticky top-16 z-30 bg-background/90 backdrop-blur border-b border-border py-4">
+      <section className="sticky top-16 md:top-[6.25rem] z-30 bg-background/90 backdrop-blur border-b border-border py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
             <div className="relative w-full md:w-96 group">

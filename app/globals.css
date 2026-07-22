@@ -4,104 +4,103 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
-  Modern Professional — single deep-blue brand color, disciplined slate
-  neutrals, near-white paper. Restrained by design: one authoritative hue,
-  crisp borders, minimal motion.
+  Oxblood & Parchment — a warm, scholarly palette. Deep oxblood brand color
+  on parchment paper, with a brass-gold highlight. Deliberately away from the
+  default blue-on-white SaaS look.
 */
 :root {
-  --background: oklch(0.985 0.002 250);
-  --foreground: oklch(0.25 0.02 258);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.25 0.02 258);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.25 0.02 258);
+  --background: oklch(0.955 0.013 88);
+  --foreground: oklch(0.26 0.010 66);
+  --card: oklch(0.988 0.008 88);
+  --card-foreground: oklch(0.26 0.010 66);
+  --popover: oklch(0.988 0.008 88);
+  --popover-foreground: oklch(0.26 0.010 66);
 
-  /* Brand: deep, credible blue (~#12467a) */
-  --primary: oklch(0.42 0.105 252);
-  --primary-foreground: oklch(0.99 0.002 250);
+  /* Brand: deep oxblood / burgundy (~#7A2E2E) */
+  --primary: oklch(0.41 0.115 26);
+  --primary-foreground: oklch(0.97 0.010 88);
 
-  /* Secondary = neutral surface, not a second brand color */
-  --secondary: oklch(0.965 0.004 250);
-  --secondary-foreground: oklch(0.32 0.02 258);
+  --secondary: oklch(0.925 0.014 84);
+  --secondary-foreground: oklch(0.32 0.012 66);
 
-  --muted: oklch(0.965 0.004 250);
-  --muted-foreground: oklch(0.52 0.015 258);
+  --muted: oklch(0.930 0.013 84);
+  --muted-foreground: oklch(0.47 0.016 62);
 
-  /* Accent = quiet blue tint for hovers/wash, not a loud third hue */
-  --accent: oklch(0.955 0.012 252);
-  --accent-foreground: oklch(0.42 0.105 252);
+  /* Accent = warm blush tint of the brand, for icon boxes / hovers */
+  --accent: oklch(0.925 0.022 40);
+  --accent-foreground: oklch(0.41 0.115 26);
 
-  /* Reserved warm highlight — used sparingly (e.g. star ratings) */
-  --highlight: oklch(0.72 0.13 72);
+  /* Brass gold — used sparingly (star ratings, small highlights) */
+  --highlight: oklch(0.62 0.095 82);
 
   --destructive: oklch(0.55 0.20 27);
-  --destructive-foreground: oklch(0.99 0.002 250);
+  --destructive-foreground: oklch(0.97 0.010 88);
 
-  --border: oklch(0.91 0.005 255);
-  --input: oklch(0.91 0.005 255);
-  --ring: oklch(0.42 0.105 252);
+  --border: oklch(0.885 0.014 78);
+  --input: oklch(0.885 0.014 78);
+  --ring: oklch(0.41 0.115 26);
 
-  --chart-1: oklch(0.42 0.105 252);
-  --chart-2: oklch(0.55 0.09 235);
-  --chart-3: oklch(0.66 0.08 220);
-  --chart-4: oklch(0.72 0.13 72);
-  --chart-5: oklch(0.48 0.06 258);
+  --chart-1: oklch(0.41 0.115 26);
+  --chart-2: oklch(0.60 0.095 82);
+  --chart-3: oklch(0.50 0.050 60);
+  --chart-4: oklch(0.70 0.060 70);
+  --chart-5: oklch(0.35 0.060 30);
 
   --radius: 0.5rem;
 
-  --sidebar: oklch(0.985 0.002 250);
-  --sidebar-foreground: oklch(0.25 0.02 258);
-  --sidebar-primary: oklch(0.42 0.105 252);
-  --sidebar-primary-foreground: oklch(0.99 0.002 250);
-  --sidebar-accent: oklch(0.955 0.012 252);
-  --sidebar-accent-foreground: oklch(0.42 0.105 252);
-  --sidebar-border: oklch(0.91 0.005 255);
-  --sidebar-ring: oklch(0.42 0.105 252);
+  --sidebar: oklch(0.955 0.013 88);
+  --sidebar-foreground: oklch(0.26 0.010 66);
+  --sidebar-primary: oklch(0.41 0.115 26);
+  --sidebar-primary-foreground: oklch(0.97 0.010 88);
+  --sidebar-accent: oklch(0.925 0.022 40);
+  --sidebar-accent-foreground: oklch(0.41 0.115 26);
+  --sidebar-border: oklch(0.885 0.014 78);
+  --sidebar-ring: oklch(0.41 0.115 26);
 }
 
 .dark {
-  --background: oklch(0.19 0.02 258);
-  --foreground: oklch(0.96 0.004 250);
-  --card: oklch(0.23 0.02 258);
-  --card-foreground: oklch(0.96 0.004 250);
-  --popover: oklch(0.23 0.02 258);
-  --popover-foreground: oklch(0.96 0.004 250);
+  --background: oklch(0.205 0.012 55);
+  --foreground: oklch(0.94 0.012 86);
+  --card: oklch(0.245 0.013 52);
+  --card-foreground: oklch(0.94 0.012 86);
+  --popover: oklch(0.245 0.013 52);
+  --popover-foreground: oklch(0.94 0.012 86);
 
-  --primary: oklch(0.72 0.10 245);
-  --primary-foreground: oklch(0.18 0.02 258);
+  --primary: oklch(0.63 0.135 28);
+  --primary-foreground: oklch(0.17 0.010 40);
 
-  --secondary: oklch(0.27 0.02 258);
-  --secondary-foreground: oklch(0.96 0.004 250);
+  --secondary: oklch(0.29 0.013 52);
+  --secondary-foreground: oklch(0.94 0.012 86);
 
-  --muted: oklch(0.27 0.02 258);
-  --muted-foreground: oklch(0.70 0.015 255);
+  --muted: oklch(0.29 0.013 52);
+  --muted-foreground: oklch(0.73 0.014 78);
 
-  --accent: oklch(0.30 0.03 250);
-  --accent-foreground: oklch(0.90 0.03 245);
+  --accent: oklch(0.32 0.030 34);
+  --accent-foreground: oklch(0.82 0.090 34);
 
-  --highlight: oklch(0.78 0.13 74);
+  --highlight: oklch(0.72 0.110 82);
 
   --destructive: oklch(0.62 0.19 25);
-  --destructive-foreground: oklch(0.96 0.004 250);
+  --destructive-foreground: oklch(0.96 0.010 86);
 
-  --border: oklch(0.32 0.015 258);
-  --input: oklch(0.32 0.015 258);
-  --ring: oklch(0.72 0.10 245);
+  --border: oklch(0.33 0.014 52);
+  --input: oklch(0.33 0.014 52);
+  --ring: oklch(0.63 0.135 28);
 
-  --chart-1: oklch(0.72 0.10 245);
-  --chart-2: oklch(0.65 0.09 230);
-  --chart-3: oklch(0.60 0.08 215);
-  --chart-4: oklch(0.78 0.13 74);
-  --chart-5: oklch(0.80 0.04 250);
+  --chart-1: oklch(0.63 0.135 28);
+  --chart-2: oklch(0.72 0.110 82);
+  --chart-3: oklch(0.62 0.060 60);
+  --chart-4: oklch(0.70 0.070 70);
+  --chart-5: oklch(0.55 0.090 30);
 
-  --sidebar: oklch(0.21 0.02 258);
-  --sidebar-foreground: oklch(0.96 0.004 250);
-  --sidebar-primary: oklch(0.72 0.10 245);
-  --sidebar-primary-foreground: oklch(0.18 0.02 258);
-  --sidebar-accent: oklch(0.30 0.03 250);
-  --sidebar-accent-foreground: oklch(0.90 0.03 245);
-  --sidebar-border: oklch(0.32 0.015 258);
-  --sidebar-ring: oklch(0.72 0.10 245);
+  --sidebar: oklch(0.225 0.012 55);
+  --sidebar-foreground: oklch(0.94 0.012 86);
+  --sidebar-primary: oklch(0.63 0.135 28);
+  --sidebar-primary-foreground: oklch(0.17 0.010 40);
+  --sidebar-accent: oklch(0.32 0.030 34);
+  --sidebar-accent-foreground: oklch(0.82 0.090 34);
+  --sidebar-border: oklch(0.33 0.014 52);
+  --sidebar-ring: oklch(0.63 0.135 28);
 }
 
 @theme inline {
@@ -158,14 +157,12 @@
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     text-rendering: optimizeLegibility;
   }
-  /* Tight, confident headings — the grotesk look done right */
   h1, h2, h3, h4 {
     letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
-  /* One restrained reveal. That's it. */
   @keyframes fade-in-up {
     from {
       opacity: 0;
@@ -181,8 +178,6 @@
     animation: fade-in-up 0.5s ease-out both;
   }
 
-  /* Legacy reveal names kept as gentle fades so untouched pages
-     still show their content (no invisible-until-animated states). */
   .animate-slide-in-left,
   .animate-slide-fade-in-left,
   .animate-slide-fade-in-right,
@@ -199,7 +194,6 @@
   }
 }
 
-/* Respect users who don't want motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

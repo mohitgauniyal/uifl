@@ -4,6 +4,7 @@ import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowRight, ArrowUpRight, Target, MessageCircle, Briefcase, GraduationCap } from 'lucide-react'
+import { Flag } from '@/components/flag'
 
 const languages = [
   { id: 'french', name: 'French', greeting: 'Bonjour', description: 'DELF / DALF preparation, conversation and business French.', levels: 'A1 – C1', exam: 'DELF · DALF', students: 240, popular: true },
@@ -74,7 +75,7 @@ export default function CoursesPage() {
                 className="group flex flex-col rounded-xl border border-border bg-card p-7 hover:border-primary/40 transition-colors"
               >
                 <div className="flex items-start justify-between">
-                  <span className="text-2xl font-medium text-foreground">{lang.greeting}</span>
+                  <Flag code={lang.id} className="h-6 w-9" />
                   <div className="flex items-center gap-2">
                     {lang.popular && (
                       <span className="text-[11px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
@@ -88,6 +89,7 @@ export default function CoursesPage() {
                 <h3 className="mt-5 text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                   {lang.name}
                 </h3>
+                <p className="text-sm text-muted-foreground mt-0.5">{lang.greeting}</p>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">{lang.description}</p>
 
                 <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-sm">

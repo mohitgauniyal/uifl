@@ -4,6 +4,7 @@ import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowRight, ArrowUpRight, Globe, Zap, Users, Award, BookOpen, Plane } from 'lucide-react'
+import { Flag } from '@/components/flag'
 
 export const metadata = {
   title: 'Languages | Unique Institute',
@@ -52,10 +53,11 @@ export default function LanguagesPage() {
               >
                 <div className="flex items-start justify-between">
                   <div>
-                    <span className="text-2xl font-medium text-foreground">{lang.greeting}</span>
-                    <h3 className="mt-3 text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                    <Flag code={lang.id} className="h-7 w-11" />
+                    <h3 className="mt-4 text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
                       {lang.name}
                     </h3>
+                    <p className="text-sm text-muted-foreground mt-0.5">{lang.greeting}</p>
                   </div>
                   <ArrowUpRight size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>

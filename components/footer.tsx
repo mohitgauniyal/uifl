@@ -45,14 +45,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 py-16">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-6">
-              <div className="w-9 h-9 bg-primary rounded-md flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-base">U</span>
-              </div>
-              <div className="leading-tight">
-                <span className="block text-sm font-bold tracking-tight text-foreground">UIFL</span>
-                <span className="block text-[11px] text-muted-foreground">Foreign Languages</span>
-              </div>
+            <Link href="/" className="block mb-6 leading-none">
+              <span className="block text-base font-bold tracking-tight text-foreground">
+                Unique Institute
+              </span>
+              <span className="block mt-1 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                Foreign Languages · Est. 1998
+              </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
               Unique Institute of Foreign Languages: 25+ years of excellence in language education.

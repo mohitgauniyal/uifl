@@ -5,16 +5,17 @@ import { MediaFrame } from '@/components/media-frame'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Volume2, GraduationCap, FileCheck, Lightbulb } from 'lucide-react'
+import { Flag } from '@/components/flag'
 
 const faculty = [
-  { name: 'Marie Dupont', photo: undefined, language: 'French', qualification: 'M.A. French Literature (Sorbonne University)', experience: '12 years', specialization: 'DELF preparation & advanced French', languages: ['French', 'English'] },
-  { name: 'Klaus Schmidt', photo: undefined, language: 'German', qualification: 'Goethe-Institut Certification (Berlin)', experience: '10 years', specialization: 'Business German & CEFR levels', languages: ['German', 'English'] },
-  { name: 'Carlos López', photo: undefined, language: 'Spanish', qualification: 'B.A. Hispanic Studies (Madrid University)', experience: '11 years', specialization: 'DELE preparation & Latin American Spanish', languages: ['Spanish', 'English', 'Portuguese'] },
-  { name: 'Yuki Tanaka', photo: undefined, language: 'Japanese', qualification: 'JLPT N1 Certified (Japan Foundation)', experience: '9 years', specialization: 'JLPT preparation & Japanese culture', languages: ['Japanese', 'English'] },
-  { name: 'Wei Chen', photo: undefined, language: 'Chinese (Mandarin)', qualification: 'M.A. Linguistics (Beijing University)', experience: '8 years', specialization: 'HSK preparation & tone training', languages: ['Chinese', 'English'] },
-  { name: 'Olga Volkov', photo: undefined, language: 'Russian', qualification: 'M.A. Russian Language & Literature (Moscow State University)', experience: '13 years', specialization: 'Russian grammar & literature', languages: ['Russian', 'English', 'German'] },
-  { name: 'David Mitchell', photo: undefined, language: 'English', qualification: 'TEFL/TESOL Certification (Cambridge)', experience: '15 years', specialization: 'TOEFL/IELTS & business English', languages: ['English', 'Spanish', 'French'] },
-  { name: 'Priya Sharma', photo: undefined, language: 'Coordination & support', qualification: 'M.A. Education (Delhi University)', experience: '14 years', specialization: 'Curriculum design & student support', languages: ['English', 'Hindi', 'Spanish'] },
+  { name: 'Marie Dupont', photo: undefined, flag: 'french', language: 'French', qualification: 'M.A. French Literature (Sorbonne University)', experience: '12 years', specialization: 'DELF preparation & advanced French', languages: ['French', 'English'] },
+  { name: 'Klaus Schmidt', photo: undefined, flag: 'german', language: 'German', qualification: 'Goethe-Institut Certification (Berlin)', experience: '10 years', specialization: 'Business German & CEFR levels', languages: ['German', 'English'] },
+  { name: 'Carlos López', photo: undefined, flag: 'spanish', language: 'Spanish', qualification: 'B.A. Hispanic Studies (Madrid University)', experience: '11 years', specialization: 'DELE preparation & Latin American Spanish', languages: ['Spanish', 'English', 'Portuguese'] },
+  { name: 'Yuki Tanaka', photo: undefined, flag: 'japanese', language: 'Japanese', qualification: 'JLPT N1 Certified (Japan Foundation)', experience: '9 years', specialization: 'JLPT preparation & Japanese culture', languages: ['Japanese', 'English'] },
+  { name: 'Wei Chen', photo: undefined, flag: 'chinese', language: 'Chinese (Mandarin)', qualification: 'M.A. Linguistics (Beijing University)', experience: '8 years', specialization: 'HSK preparation & tone training', languages: ['Chinese', 'English'] },
+  { name: 'Olga Volkov', photo: undefined, flag: 'russian', language: 'Russian', qualification: 'M.A. Russian Language & Literature (Moscow State University)', experience: '13 years', specialization: 'Russian grammar & literature', languages: ['Russian', 'English', 'German'] },
+  { name: 'David Mitchell', photo: undefined, flag: 'english', language: 'English', qualification: 'TEFL/TESOL Certification (Cambridge)', experience: '15 years', specialization: 'TOEFL/IELTS & business English', languages: ['English', 'Spanish', 'French'] },
+  { name: 'Priya Sharma', photo: undefined, flag: undefined, language: 'Coordination & support', qualification: 'M.A. Education (Delhi University)', experience: '14 years', specialization: 'Curriculum design & student support', languages: ['English', 'Hindi', 'Spanish'] },
 ]
 
 const highlights = [
@@ -82,7 +83,10 @@ export default function FacultyPage() {
                 <div className="flex-1 p-6 space-y-4">
                   <div>
                     <h3 className="font-semibold text-foreground">{member.name}</h3>
-                    <p className="text-sm text-primary mt-0.5">{member.language}</p>
+                    <p className="text-sm text-primary mt-1 flex items-center gap-2">
+                      {member.flag && <Flag code={member.flag} className="h-3.5 w-5" />}
+                      {member.language}
+                    </p>
                   </div>
 
                   <div className="space-y-3 text-sm">

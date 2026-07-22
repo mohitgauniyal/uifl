@@ -7,6 +7,7 @@ import { MediaFrame } from '@/components/media-frame'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowRight, Clock, Users, Award, Zap, BookOpen } from 'lucide-react'
+import { Flag } from '@/components/flag'
 import { use, useState } from 'react'
 
 const languageData: Record<string, any> = {
@@ -89,10 +90,11 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-sm font-semibold text-primary">Language program</p>
-              <div className="flex items-baseline gap-4">
-                <span className="text-3xl font-medium text-muted-foreground">{data.greeting}</span>
-                <h1 className="text-5xl sm:text-6xl font-bold text-foreground">{data.language}</h1>
+              <div className="flex items-center gap-3">
+                <Flag code={language} className="h-8 w-12" />
+                <span className="text-2xl font-medium text-muted-foreground">{data.greeting}</span>
               </div>
+              <h1 className="text-5xl sm:text-6xl font-bold text-foreground">{data.language}</h1>
               <p className="text-lg text-primary font-medium">{data.tagline}</p>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">{data.description}</p>
               <Button size="lg" asChild>
