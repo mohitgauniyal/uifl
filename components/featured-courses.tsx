@@ -76,7 +76,7 @@ export default function FeaturedCourses() {
             href="/languages"
             className="group bg-card p-6 flex flex-col justify-between min-h-44 hover:bg-accent transition-colors"
           >
-            <span className="text-sm font-medium text-muted-foreground">Not sure where to start?</span>
+            <span className="text-sm font-medium text-muted-foreground">Explore all seven</span>
             <span className="mt-6 inline-flex items-center gap-1 font-semibold text-primary">
               Compare all languages
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
