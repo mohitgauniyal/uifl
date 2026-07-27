@@ -61,7 +61,7 @@ export default function Navigation() {
 
             <div className="flex items-center gap-3">
               <Button className="hidden sm:inline-flex" asChild>
-                <Link href="/contact">Book Assessment</Link>
+                <Link href="/contact">Book a Demo</Link>
               </Button>
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -87,7 +87,7 @@ export default function Navigation() {
               ))}
               <div className="px-3 pt-3">
                 <Button className="w-full" asChild>
-                  <Link href="/contact" onClick={() => setIsOpen(false)}>Book Assessment</Link>
+                  <Link href="/contact" onClick={() => setIsOpen(false)}>Book a Demo</Link>
                 </Button>
               </div>
             </div>

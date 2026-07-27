@@ -63,7 +63,7 @@ export default function FaqPage() {
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild>
-                <Link href="/contact">Book a Free Assessment</Link>
+                <Link href="/contact">Book a Free Demo Class</Link>
               </Button>
               <Button variant="outline" asChild>
                 <a href="tel:+919412059424">Call +91 94120 59424</a>

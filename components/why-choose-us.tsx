@@ -3,8 +3,8 @@ import { EditorialStatement } from '@/components/editorial-statement'
 
 const pillars = [
   {
-    title: 'Experienced, in-house faculty',
-    description: 'A dedicated team that teaches all seven languages, with a focus on exam success — not a rotating cast of part-timers.',
+    title: 'Experienced, dedicated faculty',
+    description: 'A committed team teaching all seven languages — helping you speak with confidence and succeed in the exams that matter.',
   },
   {
     title: 'Learn the way that suits you',
@@ -33,8 +33,8 @@ export default function WhyChooseUs() {
           eyebrow="Why Unique Institute"
           statement={
             <>
-              Small batches, an experienced in-house faculty, and a curriculum built around the exams
-              that matter —<span className="text-primary"> with results to prove it.</span>
+              Small batches, an experienced faculty, and teaching that takes you from everyday
+              conversation to the exams that matter —<span className="text-primary"> with results to prove it.</span>
             </>
           }
           pillars={pillars}

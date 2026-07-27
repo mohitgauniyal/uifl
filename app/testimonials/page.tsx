@@ -104,7 +104,7 @@ export default function TestimonialsPage() {
             Become our next success story
           </h2>
           <p className="mt-4 text-lg text-background/70">
-            Book a free assessment and start your language journey with us.
+            Book a free demo class and start your language journey with us.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Button size="lg" asChild>

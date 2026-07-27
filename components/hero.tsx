@@ -25,13 +25,13 @@ export default function Hero() {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-foreground">
               Foreign language training that gets you{' '}
-              <span className="text-primary">certified</span>.
+              <span className="text-primary">speaking — and certified</span>.
             </h1>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Structured courses in seven languages, taught by certified
-              instructors and aligned with international exam standards. In our
-              Dehradun centre or live online.
+              Structured courses in seven languages — for real conversation and
+              internationally recognised exams alike. Taught by experienced
+              instructors, in our Dehradun centre or live online.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -42,7 +42,7 @@ export default function Hero() {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="px-6" asChild>
-                <Link href="/contact">Book a Free Assessment</Link>
+                <Link href="/contact">Book a Free Demo Class</Link>
               </Button>
             </div>
 
@@ -58,7 +58,7 @@ export default function Hero() {
 
           {/* Right: welcome video / class photo */}
           <div className="lg:pl-4">
-            <IntroVideo videoUrl={INTRO_VIDEO_URL} image={HERO_IMAGE} caption="Inside our Dehradun centre" />
+            <IntroVideo videoUrl={INTRO_VIDEO_URL} image={HERO_IMAGE} caption="A class in session" />
           </div>
         </div>
       </div>

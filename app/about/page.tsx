@@ -163,7 +163,7 @@ export default function AboutPage() {
               <Link href="/courses">Explore Courses</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/contact">Book a Free Assessment</Link>
+              <Link href="/contact">Book a Free Demo Class</Link>
             </Button>
           </div>
         </div>

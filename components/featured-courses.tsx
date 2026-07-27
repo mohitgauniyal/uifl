@@ -44,7 +44,7 @@ export default function FeaturedCourses() {
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Seven languages, one standard</h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-sm">
-            Every course runs A1 to C1 and maps to an internationally recognised certification.
+            Every course runs from beginner to advanced and maps to an internationally recognised certification.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export default function FeaturedCourses() {
                   {lang.name}
                 </h3>
                 <p className="text-sm text-muted-foreground mt-0.5">{lang.greeting}</p>
-                <p className="text-xs text-muted-foreground mt-2">A1–C1 · {lang.exam}</p>
+                <p className="text-xs text-muted-foreground mt-2">All levels · {lang.exam}</p>
               </div>
             </Link>
           ))}

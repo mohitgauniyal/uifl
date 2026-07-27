@@ -103,7 +103,7 @@ export default function CoursesPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Button size="lg" asChild>
               <Link href="/contact">
-                Book a Free Assessment
+                Book a Free Demo Class
                 <ArrowRight size={18} className="ml-2" />
               </Link>
             </Button>

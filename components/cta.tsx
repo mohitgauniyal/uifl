@@ -20,13 +20,13 @@ export default function CallToAction() {
             <p className="text-sm font-semibold text-primary mb-2">Take the next step</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Ready to start learning?</h2>
             <p className="mt-3 text-muted-foreground leading-relaxed">
-              Book a free assessment and we&apos;ll recommend the right language, level and format for your goals.
+              Book a free demo class and we&apos;ll recommend the right language, level and format for your goals.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 lg:shrink-0">
             <Button size="lg" asChild>
               <Link href="/contact">
-                Book a Free Assessment
+                Book a Free Demo Class
                 <ArrowRight size={18} className="ml-2" />
               </Link>
             </Button>

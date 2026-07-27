@@ -19,7 +19,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'How long does it take to complete a level or clear an exam?',
-    a: 'Most levels take around 2–4 months depending on the language and whether you choose a regular or fast-track batch. Japanese and Chinese take longer at higher levels. We map out a clear timeline for you during your free assessment.',
+    a: 'Most levels take around 2–4 months depending on the language and whether you choose a regular or fast-track batch. Japanese and Chinese take longer at higher levels. We map out a clear timeline for you during your free demo class.',
   },
   {
     q: 'What are the batch sizes and timings?',
@@ -27,7 +27,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'What are the fees?',
-    a: 'Fees vary by language, level and format (classroom, online, group or one-on-one). Please call us on +91 94120 59424 or book a free assessment and we will share the current fees along with a recommended learning plan.',
+    a: 'Fees vary by language, level and format (classroom, online, group or one-on-one). Please call us on +91 94120 59424 or book a free demo class and we will share the current fees along with a recommended learning plan.',
   },
   {
     q: 'Can you help with studying or working abroad?',
@@ -35,7 +35,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'How do I enrol or book a demo class?',
-    a: 'Book a free assessment through our contact page, or call +91 94120 59424. We will assess your current level, recommend the right course, and help you join the next suitable batch.',
+    a: 'Book a free demo class through our contact page, or call +91 94120 59424. We will assess your current level, recommend the right course, and help you join the next suitable batch.',
   },
   {
     q: 'Where are you located?',

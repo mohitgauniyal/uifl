@@ -252,7 +252,7 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
               <Link href="/contact">Enroll Now</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/contact">Book a Free Assessment</Link>
+              <Link href="/contact">Book a Free Demo Class</Link>
             </Button>
           </div>
         </div>

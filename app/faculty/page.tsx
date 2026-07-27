@@ -76,12 +76,11 @@ export default function FacultyPage() {
             <h2 className="text-xl font-bold text-foreground">Small team. Personal attention.</h2>
             <p className="text-muted-foreground leading-relaxed">
               At Unique Institute you learn directly from our director and a dedicated team of
-              instructors — not a rotating cast of part-timers. The same faces guide you from your
-              first class through to exam day.
+              instructors. The same faces guide you from your very first class to real fluency.
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground pt-2 border-t border-border">
-              <span>Seven languages taught in-house</span>
-              <span>Exam-focused preparation</span>
+              <span>Seven languages, one team</span>
+              <span>Conversation &amp; exam prep</span>
               <span>Classroom &amp; online</span>
             </div>
           </div>
@@ -151,7 +150,7 @@ export default function FacultyPage() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Button size="lg" asChild>
-              <Link href="/contact">Book a Demo Class</Link>
+              <Link href="/contact">Book a Free Demo Class</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link href="/contact">Contact Us</Link>
