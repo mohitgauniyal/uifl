@@ -30,7 +30,8 @@ export default function TermsPage() {
             <p>
               The content on this site is provided for general information about our courses and services.
               Course details, levels, timings and outcomes are indicative and may change; nothing on this
-              site is a binding offer or a guarantee of specific results.
+              site is a binding offer or a guarantee of specific results. Testimonials and any success
+              figures reflect individual, historical experiences and are not a promise of future results.
             </p>
           </div>
 
@@ -55,6 +56,23 @@ export default function TermsPage() {
             <p>
               This site may link to or embed third-party content. We are not responsible for the content
               or practices of external websites.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            <h2 className="text-xl font-bold text-foreground">Limitation of liability</h2>
+            <p>
+              This website is provided on an &ldquo;as is&rdquo; basis. To the extent permitted by law, we
+              are not liable for any loss arising from your reliance on the information here. Always confirm
+              current details with us directly before making a decision.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            <h2 className="text-xl font-bold text-foreground">Governing law</h2>
+            <p>
+              These terms are governed by the laws of India, and any disputes are subject to the exclusive
+              jurisdiction of the courts of Dehradun, Uttarakhand.
             </p>
           </div>
 

@@ -22,7 +22,8 @@ export default function PrivacyPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-muted-foreground leading-relaxed">
           <p>
             This policy explains what information {siteConfig.name} (&ldquo;we&rdquo;, &ldquo;us&rdquo;)
-            collects when you use this website, how we use it, and the choices you have.
+            collects when you use this website, how we use it, and the choices you have. This is an
+            informational website — we do not run user accounts and we do not collect payments here.
           </p>
 
           <div className="space-y-3">
@@ -36,8 +37,9 @@ export default function PrivacyPage() {
               <li>The message you send us</li>
             </ul>
             <p>
-              We also collect basic, anonymous usage information automatically (such as pages viewed and
-              general device or browser type) to understand how the site is used and improve it.
+              We also receive basic, anonymous usage information automatically (such as pages viewed and
+              general device or browser type), and our host keeps standard server logs (such as your IP
+              address and the pages requested) to keep the site secure and reliable.
             </p>
           </div>
 
@@ -52,24 +54,74 @@ export default function PrivacyPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-xl font-bold text-foreground">How your information is handled</h2>
+            <h2 className="text-xl font-bold text-foreground">Who handles your information</h2>
             <p>
-              Contact-form submissions are delivered to our email inbox through a third-party form
-              service. Anonymous analytics are processed by our hosting/analytics provider. We do not
-              sell your personal information.
+              We use a small number of trusted third-party services to run this site. We do not sell your
+              personal information to anyone.
             </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <strong className="text-foreground">Web3Forms</strong> — delivers your contact-form
+                submission to our email inbox.{' '}
+                <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  Their privacy policy
+                </a>
+                .
+              </li>
+              <li>
+                <strong className="text-foreground">Vercel</strong> — hosts this website and keeps standard
+                server logs.{' '}
+                <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  Their privacy policy
+                </a>
+                .
+              </li>
+              <li>
+                <strong className="text-foreground">Vercel Analytics</strong> — gives us aggregated,
+                cookieless usage statistics; it does not identify you personally.
+              </li>
+              <li>
+                <strong className="text-foreground">Google Maps &amp; YouTube</strong> — embedded on some
+                pages for our location and video lessons; Google may set cookies and collect data under{' '}
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  its own policy
+                </a>
+                .
+              </li>
+              <li>
+                <strong className="text-foreground">WhatsApp</strong> — if you choose to message us, your
+                chat is handled by WhatsApp under{' '}
+                <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  its own policy
+                </a>
+                .
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-3">
+            <h2 className="text-xl font-bold text-foreground">Cookies</h2>
             <p>
-              Some pages embed third-party content — for example YouTube videos and Google Maps — which
-              may set their own cookies and collect data under their own privacy policies.
+              This website does not set its own advertising or tracking cookies. Some embedded third-party
+              content (such as Google Maps or YouTube) may set cookies under its own privacy policy when you
+              interact with it.
             </p>
           </div>
 
           <div className="space-y-3">
             <h2 className="text-xl font-bold text-foreground">Data retention &amp; your choices</h2>
             <p>
-              We keep enquiry details only as long as needed to respond to you and for our records. You
-              may ask us to access or delete your information at any time by contacting us using the
-              details below.
+              We keep enquiry details only as long as needed to respond to you and for our records. You may
+              ask us to access, correct or delete your information at any time by contacting us using the
+              details below, and we will act on reasonable requests.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            <h2 className="text-xl font-bold text-foreground">Governing law</h2>
+            <p>
+              This policy and our handling of your information are governed by the laws of India, including
+              the Digital Personal Data Protection Act, 2023.
             </p>
           </div>
 
