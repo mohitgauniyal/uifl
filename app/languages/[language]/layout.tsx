@@ -13,7 +13,7 @@ export async function generateMetadata({
 
   return {
     title: `${m.name} Classes in Dehradun — ${m.exam} Preparation`,
-    description: `Learn ${m.name} in Dehradun and online at Unique Institute. ${m.blurb} Certified faculty, small batches, A1 to advanced levels.`,
+    description: `Learn ${m.name} in Dehradun and online at Unique Institute. ${m.blurb} Experienced faculty, small batches, beginner to advanced levels.`,
     alternates: { canonical: `/languages/${language}` },
     openGraph: {
       type: 'website',
