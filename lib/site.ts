@@ -31,7 +31,7 @@ export const siteConfig = {
   areaServed: 'Dehradun, Uttarakhand',
   // TODO: add your Google Business Profile URL and any social profiles here —
   // it strengthens the link between the site and your verified listing.
-  sameAs: ['https://www.youtube.com/@UILF'],
+  sameAs: ['https://www.youtube.com/@uniqueinstituteddn'],
 } as const
 
 /** Per-language SEO metadata, keyed by route id. */

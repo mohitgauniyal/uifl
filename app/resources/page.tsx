@@ -98,7 +98,7 @@ export default function ResourcesPage() {
                     Our channel is dedicated to making these topics simple and accessible for everyone.
                   </p>
                 </div>
-                <Button className="w-full" onClick={() => window.open('https://www.youtube.com/@UILF', '_blank')}>
+                <Button className="w-full" onClick={() => window.open('https://www.youtube.com/@uniqueinstituteddn', '_blank')}>
                   Subscribe to our channel
                 </Button>
               </div>
