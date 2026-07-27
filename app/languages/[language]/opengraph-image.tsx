@@ -38,13 +38,13 @@ export default async function Image({ params }: { params: Promise<{ language: st
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{ fontSize: 82, fontWeight: 700, color: '#22201C', lineHeight: 1.05 }}>
-            {m.name} classes
+            {`${m.name} classes`}
           </div>
           <div style={{ fontSize: 82, fontWeight: 700, color: '#7A2E2E', lineHeight: 1.05 }}>
-            in Dehradun &amp; online
+            in Dehradun & online
           </div>
           <div style={{ fontSize: 30, color: '#4a4640', marginTop: 28 }}>
-            {m.exam} preparation · beginner to advanced
+            {`${m.exam} preparation · beginner to advanced`}
           </div>
         </div>
 
