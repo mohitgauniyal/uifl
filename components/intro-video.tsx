@@ -4,9 +4,12 @@ import { useState } from 'react'
 import { Play } from 'lucide-react'
 
 interface IntroVideoProps {
-  /** YouTube URL or watch/share link. When absent, a clean placeholder is shown. */
+  /** YouTube URL or watch/share link. When present, the slot becomes an inline player. */
   videoUrl?: string
-  /** Optional poster image behind the play button. */
+  /** Standing photo shown when there's no video yet (e.g. '/gallery/hero.jpg').
+   *  Swap in `videoUrl` later and this becomes the poster / player automatically. */
+  image?: string
+  /** Optional explicit poster image behind the play button (defaults to YouTube thumb). */
   poster?: string
   label?: string
   caption?: string
@@ -19,20 +22,24 @@ function getYoutubeId(url?: string) {
 }
 
 /**
- * Welcome / intro video slot. Plays inline when a YouTube URL is supplied;
- * otherwise shows an intentional "video coming soon" placeholder.
+ * Hero media slot with three states, so it's swap-ready end to end:
+ *  1. `videoUrl` set  → inline YouTube player (play button + poster).
+ *  2. only `image` set → clean framed photo, no fake play button.
+ *  3. nothing set      → intentional "coming soon" placeholder.
  */
 export function IntroVideo({
   videoUrl,
+  image,
   poster,
   label = 'Welcome to Unique Institute',
   caption = 'A short introduction to our centre & method',
 }: IntroVideoProps) {
   const [playing, setPlaying] = useState(false)
+  const [imgErrored, setImgErrored] = useState(false)
   const id = getYoutubeId(videoUrl)
-  const thumb = poster ?? (id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : undefined)
   const playable = Boolean(id)
 
+  // State 1: inline player once opened
   if (playing && id) {
     return (
       <div className="relative aspect-video overflow-hidden rounded-xl border border-border bg-black shadow-sm">
@@ -46,6 +53,29 @@ export function IntroVideo({
       </div>
     )
   }
+
+  // State 2: standing photo, no video yet — a real photo, not a broken player
+  if (!playable && image && !imgErrored) {
+    return (
+      <figure className="relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-muted shadow-sm">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={image}
+          alt={label}
+          onError={() => setImgErrored(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        {caption && (
+          <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/70 to-transparent p-4 text-sm font-medium text-white">
+            {caption}
+          </figcaption>
+        )}
+      </figure>
+    )
+  }
+
+  // State 1 (poster) / State 3 (placeholder)
+  const thumb = poster ?? (id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : undefined)
 
   return (
     <button
