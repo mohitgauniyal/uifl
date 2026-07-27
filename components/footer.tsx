@@ -123,10 +123,19 @@ export default function Footer() {
               ))}
             </div>
             <a
-              href={siteConfig.justdial}
+              href={siteConfig.googleReview}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Star size={15} className="flex-shrink-0" />
+              Review us on Google
+            </a>
+            <a
+              href={siteConfig.justdial}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <Star size={15} className="flex-shrink-0" />
               Reviews on JustDial

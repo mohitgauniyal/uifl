@@ -36,6 +36,7 @@ export const siteConfig = {
   },
   justdial:
     'https://www.justdial.com/Dehradun/Unique-Institute-Of-Foreign-Languages-Next-To-Mohan-Mandir-Dehradun-City/9999PX135-X135-140715185400-U5N2_BZDET',
+  googleReview: 'https://g.page/r/Cfu8DPArHkqVEBM/review',
   // sameAs links every official profile to the site for search engines.
   // TODO: add your Google Business Profile URL here too.
   sameAs: [
