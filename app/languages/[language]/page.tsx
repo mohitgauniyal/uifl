@@ -6,7 +6,7 @@ import { PageHeader } from '@/components/page-header'
 import { MediaFrame } from '@/components/media-frame'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { ArrowRight, Users, Award, Zap } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Flag } from '@/components/flag'
 import { FeatureList } from '@/components/feature-list'
 import { use, useState } from 'react'
@@ -15,49 +15,42 @@ const languageData: Record<string, any> = {
   french: {
     language: 'French', greeting: 'Bonjour', tagline: 'Parlez français avec confiance',
     description: 'Master French through comprehensive DELF preparation, conversational fluency and rich cultural immersion.',
-    stats: [{ label: '240+', value: 'Active students', icon: Users }, { label: '95%', value: 'Success rate', icon: Award }, { label: '12+', value: 'Expert teachers', icon: Zap }],
     levels: [{ code: 'A1', title: 'Elementary', duration: '2–3 mo', topics: 4 }, { code: 'A2', title: 'Elementary Upper', duration: '2–3 mo', topics: 4 }, { code: 'B1', title: 'Intermediate', duration: '3–4 mo', topics: 5 }, { code: 'B2', title: 'Upper Inter', duration: '3–4 mo', topics: 4 }, { code: 'C1', title: 'Advanced', duration: '4–5 mo', topics: 5 }],
     tracks: [{ title: 'DELF Exam Prep', desc: 'All levels with mock tests', duration: '6–10 weeks' }, { title: 'Conversational', desc: 'Real-world communication', duration: '8–12 weeks' }, { title: 'Business French', desc: 'Professional communication', duration: '10–12 weeks' }, { title: 'Kids Program', desc: 'Ages 6–12, interactive', duration: 'Flexible' }],
   },
   german: {
     language: 'German', greeting: 'Guten Tag', tagline: 'Sprechen Sie Deutsch mit Zuversicht',
     description: 'Learn German for business, culture and Goethe certification with expert instructors.',
-    stats: [{ label: '180+', value: 'Active students', icon: Users }, { label: '95%', value: 'Success rate', icon: Award }, { label: '10+', value: 'Expert teachers', icon: Zap }],
     levels: [{ code: 'A1', title: 'Elementary', duration: '2–3 mo', topics: 4 }, { code: 'A2', title: 'Elementary Upper', duration: '2–3 mo', topics: 4 }, { code: 'B1', title: 'Intermediate', duration: '3–4 mo', topics: 5 }, { code: 'B2', title: 'Upper Inter', duration: '3–4 mo', topics: 4 }, { code: 'C1', title: 'Advanced', duration: '4–5 mo', topics: 5 }],
     tracks: [{ title: 'Goethe Exam', desc: 'All certification levels', duration: '6–10 weeks' }, { title: 'Business German', desc: 'Corporate communication', duration: '10–12 weeks' }, { title: 'Conversational', desc: 'Everyday fluency', duration: '8–12 weeks' }, { title: 'Cultural Course', desc: 'German culture & history', duration: '6 weeks' }],
   },
   spanish: {
     language: 'Spanish', greeting: 'Hola', tagline: 'Habla español con confianza',
     description: 'Spanish language with DELE exam preparation, conversational skills and Latin American culture.',
-    stats: [{ label: '210+', value: 'Active students', icon: Users }, { label: '95%', value: 'Success rate', icon: Award }, { label: '11+', value: 'Expert teachers', icon: Zap }],
     levels: [{ code: 'A1', title: 'Elementary', duration: '2–3 mo', topics: 4 }, { code: 'A2', title: 'Elementary Upper', duration: '2–3 mo', topics: 4 }, { code: 'B1', title: 'Intermediate', duration: '3–4 mo', topics: 5 }, { code: 'B2', title: 'Upper Inter', duration: '3–4 mo', topics: 4 }, { code: 'C1', title: 'Advanced', duration: '4–5 mo', topics: 5 }],
     tracks: [{ title: 'DELE Exam Prep', desc: 'All levels certified', duration: '6–10 weeks' }, { title: 'Latin American', desc: 'Regional variations', duration: '8 weeks' }, { title: 'Conversational', desc: 'Practical communication', duration: '8–12 weeks' }, { title: 'Business Spanish', desc: 'Professional skills', duration: '10 weeks' }],
   },
   japanese: {
     language: 'Japanese', greeting: 'こんにちは', tagline: '日本語を話す',
     description: 'Japanese language and culture with JLPT certification preparation and immersive learning.',
-    stats: [{ label: '160+', value: 'Active students', icon: Users }, { label: '94%', value: 'Success rate', icon: Award }, { label: '9+', value: 'Expert teachers', icon: Zap }],
     levels: [{ code: 'N5', title: 'Beginner', duration: '3 mo', topics: 4 }, { code: 'N4', title: 'Elementary', duration: '3 mo', topics: 4 }, { code: 'N3', title: 'Intermediate', duration: '4 mo', topics: 5 }, { code: 'N2', title: 'Upper Inter', duration: '4 mo', topics: 5 }, { code: 'N1', title: 'Advanced', duration: '5 mo', topics: 5 }],
     tracks: [{ title: 'JLPT Prep', desc: 'All levels N5–N1', duration: '12–20 weeks' }, { title: 'Cultural', desc: 'Art, tradition & food', duration: '6 weeks' }, { title: 'Conversational', desc: 'Daily communication', duration: '8–12 weeks' }, { title: 'Business Japanese', desc: 'Professional context', duration: '10 weeks' }],
   },
   russian: {
     language: 'Russian', greeting: 'Привет', tagline: 'Говорите по-русски с уверенностью',
     description: 'Russian language including literature, business communication and cultural immersion.',
-    stats: [{ label: '95+', value: 'Active students', icon: Users }, { label: '93%', value: 'Success rate', icon: Award }, { label: '7+', value: 'Expert teachers', icon: Zap }],
     levels: [{ code: 'A1', title: 'Elementary', duration: '3 mo', topics: 4 }, { code: 'A2', title: 'Elementary Upper', duration: '3 mo', topics: 4 }, { code: 'B1', title: 'Intermediate', duration: '4 mo', topics: 5 }, { code: 'B2', title: 'Upper Inter', duration: '4 mo', topics: 5 }],
     tracks: [{ title: 'Literature Focus', desc: 'Russian classics', duration: '8 weeks' }, { title: 'Business Russian', desc: 'Corporate training', duration: '10 weeks' }, { title: 'Conversational', desc: 'Everyday fluency', duration: '10–12 weeks' }, { title: 'Intensive', desc: 'Fast-track program', duration: '6 weeks' }],
   },
   english: {
     language: 'English', greeting: 'Hello', tagline: 'Speak English fluently',
     description: 'English proficiency with TOEFL and IELTS certification, business English and academic writing.',
-    stats: [{ label: '320+', value: 'Active students', icon: Users }, { label: '96%', value: 'Success rate', icon: Award }, { label: '15+', value: 'Expert teachers', icon: Zap }],
     levels: [{ code: 'A1', title: 'Elementary', duration: '2–3 mo', topics: 4 }, { code: 'A2', title: 'Elementary Upper', duration: '2–3 mo', topics: 4 }, { code: 'B1', title: 'Intermediate', duration: '3 mo', topics: 5 }, { code: 'B2', title: 'Upper Inter', duration: '3 mo', topics: 5 }, { code: 'C1', title: 'Advanced', duration: '4 mo', topics: 5 }],
     tracks: [{ title: 'TOEFL Prep', desc: 'Academic English', duration: '8–12 weeks' }, { title: 'IELTS Prep', desc: 'All modules', duration: '8–12 weeks' }, { title: 'Spoken English', desc: 'Confidence & fluency', duration: '6–10 weeks' }, { title: 'Business English', desc: 'Professional skills', duration: '8 weeks' }],
   },
   chinese: {
     language: 'Chinese', greeting: '你好', tagline: '说普通话',
     description: 'Mandarin Chinese with HSK certification pathway and cultural immersion programs.',
-    stats: [{ label: '140+', value: 'Active students', icon: Users }, { label: '93%', value: 'Success rate', icon: Award }, { label: '8+', value: 'Expert teachers', icon: Zap }],
     levels: [{ code: 'HSK1', title: 'Beginner', duration: '2–3 mo', topics: 3 }, { code: 'HSK2', title: 'Elementary', duration: '2–3 mo', topics: 3 }, { code: 'HSK3', title: 'Intermediate', duration: '3–4 mo', topics: 4 }, { code: 'HSK4', title: 'Upper Inter', duration: '3–4 mo', topics: 4 }, { code: 'HSK5', title: 'Advanced', duration: '4–5 mo', topics: 5 }],
     tracks: [{ title: 'HSK Certification', desc: 'All levels HSK1–5', duration: '8–16 weeks' }, { title: 'Conversational', desc: 'Practical communication', duration: '10 weeks' }, { title: 'Business Chinese', desc: 'Professional context', duration: '10 weeks' }, { title: 'Cultural Immersion', desc: 'Heritage & customs', duration: '6 weeks' }],
   },
@@ -128,16 +121,6 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
             </div>
 
             <MediaFrame aspect="aspect-[4/3]" label={`${data.language} classroom`} />
-          </div>
-
-          {/* Stats — slim inline row */}
-          <div className="mt-10 flex flex-wrap items-baseline gap-x-8 gap-y-2 border-t border-border pt-6">
-            {data.stats.map((stat: any, idx: number) => (
-              <div key={idx} className="flex items-baseline gap-2">
-                <span className="text-xl font-bold text-foreground tabular-nums">{stat.label}</span>
-                <span className="text-sm text-muted-foreground">{stat.value}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>

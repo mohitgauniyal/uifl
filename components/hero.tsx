@@ -47,7 +47,7 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm text-muted-foreground">
-              {['Exam-focused curriculum', 'Small batches (6–8)', 'Native & certified faculty'].map((item) => (
+              {['Exam-focused curriculum', 'Small batches (6–8)', 'Experienced, exam-qualified faculty'].map((item) => (
                 <span key={item} className="inline-flex items-center gap-2">
                   <Check size={15} className="text-primary" />
                   {item}
