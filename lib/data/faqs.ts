@@ -31,7 +31,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'Can you help with studying or working abroad?',
-    a: 'Yes. Many of our students learn German for studies, Ausbildung and jobs in Germany, or French for Canada and France. We prepare you for the exact certification and language level your destination requires, and guide you on the process.',
+    a: 'Yes. Many of our students learn German for studies, vocational training and jobs in Germany, or French for Canada and France. We prepare you for the exact certification and language level your destination requires, and guide you on the process.',
   },
   {
     q: 'How do I enrol or book a demo class?',

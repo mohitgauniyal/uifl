@@ -54,7 +54,7 @@ export const languageMeta: Record<
   { name: string; exam: string; blurb: string }
 > = {
   french: { name: 'French', exam: 'DELF / DALF', blurb: 'DELF and DALF preparation, conversation and business French — ideal for studying or migrating to France and Canada.' },
-  german: { name: 'German', exam: 'Goethe-Zertifikat', blurb: 'Goethe-Zertifikat preparation, business German and everyday fluency — ideal for studies, Ausbildung and jobs in Germany.' },
+  german: { name: 'German', exam: 'Goethe-Zertifikat', blurb: 'Goethe-Zertifikat preparation, business German and everyday fluency — ideal for studies, vocational training and jobs in Germany.' },
   spanish: { name: 'Spanish', exam: 'DELE', blurb: 'DELE preparation, conversation and Latin American Spanish for travel, work and study.' },
   japanese: { name: 'Japanese', exam: 'JLPT', blurb: 'JLPT preparation with kanji, grammar and culture for study, work and the JLPT N5–N1 exams.' },
   russian: { name: 'Russian', exam: 'TORFL', blurb: 'Russian grammar, literature and business communication with TORFL preparation.' },
