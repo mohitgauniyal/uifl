@@ -1,6 +1,13 @@
 import Link from 'next/link'
-import { Phone, MapPin } from 'lucide-react'
+import { Phone, MapPin, Mail, Facebook, Instagram, Youtube } from 'lucide-react'
 import { Brand } from '@/components/brand'
+import { siteConfig } from '@/lib/site'
+
+const socialLinks = [
+  { label: 'Facebook', href: siteConfig.social.facebook, icon: Facebook },
+  { label: 'Instagram', href: siteConfig.social.instagram, icon: Instagram },
+  { label: 'YouTube', href: siteConfig.social.youtube, icon: Youtube },
+]
 
 const footerSections = [
   {
@@ -46,7 +53,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 py-16">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <Brand className="mb-6" />
+            <Brand layout="stacked" logoClassName="h-12" className="mb-6" />
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
               Unique Institute of Foreign Languages: 25+ years of excellence in language education.
             </p>
@@ -59,6 +66,12 @@ export default function Footer() {
                   <p className="text-muted-foreground">+91 9724640763</p>
                   <p className="text-muted-foreground">+91 9879878975</p>
                 </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail size={16} className="text-primary flex-shrink-0 mt-1" />
+                <a href={`mailto:${siteConfig.email}`} className="text-sm text-muted-foreground hover:text-primary transition-colors break-all">
+                  {siteConfig.email}
+                </a>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin size={16} className="text-primary flex-shrink-0 mt-1" />
@@ -88,6 +101,25 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* Follow us */}
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">Follow us</h4>
+            <div className="flex items-center gap-3">
+              {socialLinks.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+                >
+                  <Icon size={17} />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Footer Bottom */}

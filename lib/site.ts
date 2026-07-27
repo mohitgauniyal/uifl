@@ -29,9 +29,18 @@ export const siteConfig = {
   geo: { latitude: 30.3436, longitude: 78.0765 },
   openingHours: 'Mo-Su 09:00-20:00',
   areaServed: 'Dehradun, Uttarakhand',
-  // TODO: add your Google Business Profile URL and any social profiles here —
-  // it strengthens the link between the site and your verified listing.
-  sameAs: ['https://www.youtube.com/@uniqueinstituteddn'],
+  social: {
+    facebook: 'https://www.facebook.com/uniqueinstituteddn/',
+    instagram: 'https://www.instagram.com/uniqueinstituteddn/',
+    youtube: 'https://www.youtube.com/@uniqueinstituteddn',
+  },
+  // sameAs links every official profile to the site for search engines.
+  // TODO: add your Google Business Profile URL here too.
+  sameAs: [
+    'https://www.facebook.com/uniqueinstituteddn/',
+    'https://www.instagram.com/uniqueinstituteddn/',
+    'https://www.youtube.com/@uniqueinstituteddn',
+  ],
 } as const
 
 /** Per-language SEO metadata, keyed by route id. */

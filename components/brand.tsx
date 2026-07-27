@@ -16,6 +16,8 @@ interface BrandProps {
   className?: string
   /** Logo height utility (e.g. 'h-10', 'h-9'). */
   logoClassName?: string
+  /** 'row' (logo beside text, for the navbar) or 'stacked' (logo above text, for the footer). */
+  layout?: 'row' | 'stacked'
 }
 
 /**
@@ -23,13 +25,15 @@ interface BrandProps {
  * avoids repeating "Unique" in text; falls back to the full text wordmark when
  * the logo is missing, fails to load, or is emblem-only.
  */
-export function Brand({ className = '', logoClassName = 'h-10' }: BrandProps) {
+export function Brand({ className = '', logoClassName = 'h-10', layout = 'row' }: BrandProps) {
   const [logoOk, setLogoOk] = useState(Boolean(LOGO_SRC))
   const showLogo = Boolean(LOGO_SRC) && logoOk
   const showFullText = !showLogo || !LOGO_HAS_WORDMARK
+  const container =
+    layout === 'stacked' ? 'flex flex-col items-start gap-3' : 'flex items-center gap-3'
 
   return (
-    <Link href="/" className={`flex items-center gap-3 ${className}`}>
+    <Link href="/" className={`${container} ${className}`}>
       {showLogo && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
