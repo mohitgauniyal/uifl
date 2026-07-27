@@ -3,9 +3,11 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, Check } from 'lucide-react'
 import { IntroVideo } from '@/components/intro-video'
 
-// Drop a real YouTube link here (director's message / campus tour) and it
-// plays inline. Until then, a clean placeholder is shown.
+// Hero media. For now a class photo (public/gallery/hero.jpg) shows as a clean
+// framed image. When you have a real intro video, drop its YouTube link into
+// INTRO_VIDEO_URL and the same slot becomes an inline player — no other change.
 const INTRO_VIDEO_URL: string | undefined = undefined
+const HERO_IMAGE = '/gallery/hero.jpg'
 
 const exams = ['DELF / DALF', 'Goethe-Zertifikat', 'DELE', 'JLPT', 'HSK', 'IELTS', 'TOEFL', 'TORFL']
 
@@ -54,9 +56,9 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: welcome video */}
+          {/* Right: welcome video / class photo */}
           <div className="lg:pl-4">
-            <IntroVideo videoUrl={INTRO_VIDEO_URL} />
+            <IntroVideo videoUrl={INTRO_VIDEO_URL} image={HERO_IMAGE} caption="Inside our Dehradun centre" />
           </div>
         </div>
       </div>
