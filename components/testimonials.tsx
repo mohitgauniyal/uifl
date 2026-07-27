@@ -1,19 +1,16 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { TestimonialCard } from '@/components/testimonials/testimonial-card'
 import testimonialsData from '@/lib/data/testimonials.json'
 
-// Cast the imported JSON to the expected type
 const testimonials = testimonialsData as any[]
 
 export default function Testimonials() {
   const [shuffledTestimonials, setShuffledTestimonials] = useState<any[]>([])
-  const [isAutoPlay, setIsAutoPlay] = useState(true)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
-  // Shuffle algorithm
   const shuffle = (array: any[]) => {
     const newArray = [...array]
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -24,41 +21,18 @@ export default function Testimonials() {
   }
 
   useEffect(() => {
-    setShuffledTestimonials(shuffle(testimonialsData))
+    setShuffledTestimonials(shuffle(testimonials))
   }, [])
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
       const { scrollLeft, clientWidth } = scrollContainerRef.current
-      const scrollTo = direction === 'left'
-        ? scrollLeft - clientWidth / 2
-        : scrollLeft + clientWidth / 2
-
       scrollContainerRef.current.scrollTo({
-        left: scrollTo,
-        behavior: 'smooth'
+        left: direction === 'left' ? scrollLeft - clientWidth / 2 : scrollLeft + clientWidth / 2,
+        behavior: 'smooth',
       })
-      setIsAutoPlay(false)
     }
   }
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout
-    if (isAutoPlay && scrollContainerRef.current) {
-      interval = setInterval(() => {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current!
-        if (scrollLeft + clientWidth >= scrollWidth - 10) {
-          scrollContainerRef.current!.scrollTo({ left: 0, behavior: 'smooth' })
-        } else {
-          scrollContainerRef.current!.scrollTo({
-            left: scrollLeft + 400,
-            behavior: 'smooth'
-          })
-        }
-      }, 5000)
-    }
-    return () => clearInterval(interval)
-  }, [isAutoPlay])
 
   return (
     <section className="py-20 lg:py-28 bg-background overflow-hidden">
@@ -87,22 +61,14 @@ export default function Testimonials() {
             >
               <ChevronRight size={20} className="text-foreground group-hover:text-primary-foreground transition-colors" />
             </button>
-            <button
-              onClick={() => setIsAutoPlay(!isAutoPlay)}
-              aria-label={isAutoPlay ? 'Pause autoplay' : 'Play autoplay'}
-              className="w-11 h-11 bg-muted border border-border rounded-full flex items-center justify-center hover:bg-accent transition-colors text-muted-foreground"
-            >
-              {isAutoPlay ? <Pause size={18} /> : <Play size={18} className="fill-current" />}
-            </button>
           </div>
         </div>
 
-        {/* Carousel View */}
+        {/* Carousel */}
         <div className="relative -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
           <div
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-12 cursor-grab active:cursor-grabbing"
-            onMouseDown={() => setIsAutoPlay(false)}
+            className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-12"
           >
             {shuffledTestimonials.map((testimonial) => (
               <div
@@ -118,7 +84,7 @@ export default function Testimonials() {
         <div className="mt-12 text-center">
           <a
             href="/testimonials"
-            className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline underline-offset-8 decoration-2 uppercase tracking-widest"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-8 decoration-2 uppercase tracking-widest"
           >
             View all {shuffledTestimonials.length} reviews
             <ChevronRight size={16} />

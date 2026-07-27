@@ -105,13 +105,13 @@ export function IntroVideo({
         <img
           src={thumb}
           alt={label}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="absolute inset-0 h-full w-full object-cover"
         />
       )}
       {thumb && <div className="absolute inset-0 bg-foreground/20" />}
 
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center">
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform duration-300 group-hover:scale-110">
+        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md">
           <Play size={22} className="ml-0.5 fill-current" />
         </span>
         <span className={`text-sm font-semibold ${thumb ? 'text-white' : 'text-foreground'}`}>{label}</span>

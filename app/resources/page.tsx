@@ -74,10 +74,10 @@ export default function ResourcesPage() {
                   <img
                     src={`https://img.youtube.com/vi/${featuredId}/hqdefault.jpg`}
                     alt={featuredVideo.title}
-                    className="w-full h-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover opacity-70"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                    <span className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-md">
                       <PlayCircle size={34} className="text-primary-foreground fill-current" />
                     </span>
                   </div>
