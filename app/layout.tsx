@@ -44,14 +44,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   robots: { index: true, follow: true },
-  icons: {
-    icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/apple-icon.png',
-  },
+  // Favicons come from app/icon.tsx and app/apple-icon.tsx (Next auto-injects them).
 }
 
 const organizationLd = {
@@ -64,7 +57,7 @@ const organizationLd = {
   description: siteConfig.description,
   foundingDate: siteConfig.foundingYear,
   image: `${siteConfig.url}/opengraph-image`,
-  logo: `${siteConfig.url}/apple-icon.png`,
+  logo: `${siteConfig.url}/brand/logo.png`,
   telephone: siteConfig.phone[0],
   email: siteConfig.email,
   priceRange: siteConfig.priceRange,
