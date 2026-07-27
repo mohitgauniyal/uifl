@@ -15,13 +15,13 @@ export const metadata = {
 }
 
 const languages = [
-  { id: 'french', name: 'French', greeting: 'Bonjour', nativeSpeakers: '280 Million', countries: '29 countries', description: 'The language of diplomacy and culture, spoken across continents and central to international careers.', certifications: ['DELF', 'DALF'], difficulty: 'Intermediate', learningTime: '600–750 hrs' },
-  { id: 'german', name: 'German', greeting: 'Guten Tag', nativeSpeakers: '135 Million', countries: '7 countries', description: 'A language of precision, engineering and philosophy — crucial for technology and business.', certifications: ['Goethe-Zertifikat', 'TestDaF'], difficulty: 'Intermediate', learningTime: '750–900 hrs' },
-  { id: 'spanish', name: 'Spanish', greeting: 'Hola', nativeSpeakers: '500 Million', countries: '21 countries', description: 'The second most spoken language globally, opening doors across Latin America and Spain.', certifications: ['DELE'], difficulty: 'Beginner-friendly', learningTime: '600–750 hrs' },
-  { id: 'japanese', name: 'Japanese', greeting: 'こんにちは', nativeSpeakers: '125 Million', countries: '1 country', description: 'A gateway to Japanese culture, technology and innovation across the Asia-Pacific.', certifications: ['JLPT'], difficulty: 'Advanced', learningTime: '2200–2500 hrs' },
-  { id: 'russian', name: 'Russian', greeting: 'Привет', nativeSpeakers: '160 Million', countries: '15 countries', description: 'A language of literature, science and Eastern European culture and heritage.', certifications: ['TORFL'], difficulty: 'Intermediate–Advanced', learningTime: '900–1100 hrs' },
-  { id: 'english', name: 'English', greeting: 'Hello', nativeSpeakers: '370 Million', countries: '67 countries', description: 'The global language of business, technology and international communication.', certifications: ['IELTS', 'TOEFL', 'Cambridge'], difficulty: 'Beginner-friendly', learningTime: '350–500 hrs' },
-  { id: 'chinese', name: 'Chinese', greeting: '你好', nativeSpeakers: '1.1 Billion', countries: '3 countries', description: 'The most spoken language in the world, vital for understanding Asian markets.', certifications: ['HSK'], difficulty: 'Advanced', learningTime: '1500–1800 hrs' },
+  { id: 'french', name: 'French', greeting: 'Bonjour', speakers: '310 Million', countries: '29 countries', description: 'The language of diplomacy and culture, spoken across continents and central to international careers.', certifications: ['DELF', 'DALF'], difficulty: 'Beginner-friendly', learningTime: '600–750 hrs' },
+  { id: 'german', name: 'German', greeting: 'Guten Tag', speakers: '135 Million', countries: '6 countries', description: 'A language of precision, engineering and philosophy — crucial for technology and business.', certifications: ['Goethe-Zertifikat', 'TestDaF'], difficulty: 'Intermediate', learningTime: '750–900 hrs' },
+  { id: 'spanish', name: 'Spanish', greeting: 'Hola', speakers: '595 Million', countries: '21 countries', description: 'The second most spoken language globally, opening doors across Latin America and Spain.', certifications: ['DELE'], difficulty: 'Beginner-friendly', learningTime: '600–750 hrs' },
+  { id: 'japanese', name: 'Japanese', greeting: 'こんにちは', speakers: '128 Million', countries: '1 country', description: 'A gateway to Japanese culture, technology and innovation across the Asia-Pacific.', certifications: ['JLPT'], difficulty: 'Advanced', learningTime: '2200–2500 hrs' },
+  { id: 'russian', name: 'Russian', greeting: 'Привет', speakers: '255 Million', countries: '15 countries', description: 'A language of literature, science and Eastern European culture and heritage.', certifications: ['TORFL'], difficulty: 'Intermediate–Advanced', learningTime: '900–1100 hrs' },
+  { id: 'english', name: 'English', greeting: 'Hello', speakers: '1.5 Billion', countries: '67 countries', description: 'The global language of business, technology and international communication.', certifications: ['IELTS', 'TOEFL', 'Cambridge'], difficulty: 'Beginner-friendly', learningTime: '350–500 hrs' },
+  { id: 'chinese', name: 'Chinese', greeting: '你好', speakers: '1.1 Billion', countries: '3 countries', description: 'The most spoken language in the world, vital for understanding Asian markets.', certifications: ['HSK'], difficulty: 'Advanced', learningTime: '2000–2200 hrs' },
 ]
 
 const openings = [
@@ -64,8 +64,8 @@ export default function LanguagesPage() {
 
                 <div className="mt-6 grid grid-cols-2 gap-4 py-5 border-y border-border">
                   <div>
-                    <p className="text-xs text-muted-foreground">Native speakers</p>
-                    <p className="text-sm font-semibold text-foreground">{lang.nativeSpeakers}</p>
+                    <p className="text-xs text-muted-foreground">Speakers worldwide</p>
+                    <p className="text-sm font-semibold text-foreground">{lang.speakers}</p>
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Spoken in</p>
