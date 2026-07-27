@@ -143,9 +143,9 @@ export default function ResourcesPage() {
       <section className="py-20 lg:py-24 bg-muted/40 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FeatureList
-            eyebrow="Self-study"
-            title="Learning materials"
-            intro="Available across all seven languages, for practice between classes."
+            eyebrow="Included with your course"
+            title="Materials you get as a student"
+            intro="Every enrolled student receives these materials as part of their course — across all seven languages, to practise with between classes."
             items={learningResources}
           />
         </div>
