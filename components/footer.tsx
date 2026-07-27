@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Phone, MapPin } from 'lucide-react'
+import { Brand } from '@/components/brand'
 
 const footerSections = [
   {
@@ -45,14 +46,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 py-16">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <Link href="/" className="block mb-6 leading-none">
-              <span className="block text-base font-bold tracking-tight text-foreground">
-                Unique Institute
-              </span>
-              <span className="block mt-1 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                Foreign Languages · Est. 1998
-              </span>
-            </Link>
+            <Brand className="mb-6" />
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
               Unique Institute of Foreign Languages: 25+ years of excellence in language education.
             </p>

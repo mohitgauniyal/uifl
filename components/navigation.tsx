@@ -4,10 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X, Phone, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-
-// Drop the institute's logo file in /public and set its path here; the
-// wordmark stays regardless, the mark just appears beside it.
-const LOGO_SRC: string | undefined = undefined
+import { Brand } from '@/components/brand'
 
 const navLinks = [
   { label: 'Courses', href: '/courses' },
@@ -18,25 +15,6 @@ const navLinks = [
   { label: 'Testimonials', href: '/testimonials' },
   { label: 'Contact', href: '/contact' },
 ]
-
-function Wordmark() {
-  return (
-    <Link href="/" className="flex items-center gap-3">
-      {LOGO_SRC && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={LOGO_SRC} alt="Unique Institute" className="h-10 w-auto" />
-      )}
-      <span className="leading-none">
-        <span className="block text-base font-bold tracking-tight text-foreground">
-          Unique Institute
-        </span>
-        <span className="block mt-1 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-          Foreign Languages · Est. 1998
-        </span>
-      </span>
-    </Link>
-  )
-}
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -66,7 +44,7 @@ export default function Navigation() {
       <nav className="border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/75">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Wordmark />
+            <Brand />
 
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
