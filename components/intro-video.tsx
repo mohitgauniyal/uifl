@@ -63,7 +63,15 @@ export function IntroVideo({
           src={image}
           alt={label}
           onError={() => setImgErrored(true)}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover [filter:saturate(1.08)_contrast(1.04)]"
+        />
+        {/* Subtle vignette for a cinematic, intentional feel (no blur — the real photo stays sharp) */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(115% 115% at 50% 42%, transparent 55%, color-mix(in oklch, var(--foreground) 32%, transparent) 100%)',
+          }}
         />
         {caption && (
           <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/70 to-transparent p-4 text-sm font-medium text-white">
