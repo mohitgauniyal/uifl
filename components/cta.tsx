@@ -7,6 +7,10 @@ const whatsappLink = `https://wa.me/${siteConfig.whatsapp.replace(/\D/g, '')}?te
   "Hi, I'd like to know more about your language courses.",
 )}`
 
+const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${siteConfig.name} ${siteConfig.address.street} ${siteConfig.address.locality}`,
+)}`
+
 export default function CallToAction() {
   return (
     <section className="py-16 lg:py-20 bg-muted/40 border-t border-border">
@@ -42,10 +46,10 @@ export default function CallToAction() {
             <MessageCircle size={15} className="text-primary" />
             WhatsApp
           </a>
-          <span className="inline-flex items-center gap-2">
+          <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-foreground transition-colors">
             <MapPin size={15} className="text-primary" />
             Rajpur Road, Dehradun
-          </span>
+          </a>
         </div>
       </div>
     </section>
