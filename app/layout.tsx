@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { siteConfig } from '@/lib/site'
 import { JsonLd } from '@/components/json-ld'
+import { WhatsappFab } from '@/components/whatsapp-fab'
 import './globals.css'
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
@@ -105,6 +106,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         <JsonLd data={organizationLd} />
         {children}
+        <WhatsappFab />
         <Analytics />
       </body>
     </html>
