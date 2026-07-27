@@ -48,7 +48,7 @@ export function Brand({ className = '', logoClassName = 'h-10', layout = 'row' }
           <>
             <span className="block text-base font-bold tracking-tight text-foreground">Unique Institute</span>
             <span className="block mt-1 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              Foreign Languages · Est. 1998
+              Foreign Languages · Est. 1999
             </span>
           </>
         ) : (
@@ -57,7 +57,7 @@ export function Brand({ className = '', logoClassName = 'h-10', layout = 'row' }
               Institute of Foreign Languages
             </span>
             <span className="block mt-1 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              Dehradun · Est. 1998
+              Dehradun · Est. 1999
             </span>
           </>
         )}

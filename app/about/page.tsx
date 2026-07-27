@@ -9,7 +9,7 @@ import { Trophy, Users, Globe, GraduationCap } from 'lucide-react'
 export const metadata = {
   title: 'About Us — 25+ Years of Language Education in Dehradun',
   description:
-    'Unique Institute of Foreign Languages has taught foreign languages in Dehradun since 1998, with experienced faculty, small personal classes and structured preparation for DELF, Goethe, DELE, JLPT, HSK and IELTS.',
+    'Unique Institute of Foreign Languages has taught foreign languages in Dehradun since 1999, with experienced faculty, small personal classes and structured preparation for DELF, Goethe, DELE, JLPT, HSK and IELTS.',
   alternates: { canonical: '/about' },
 }
 
@@ -99,7 +99,7 @@ export default function AboutPage() {
               {/* Placeholder message — refine with the director's own words anytime. */}
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Since 1998, Unique Institute has had one simple aim: to make quality language
+                  Since 1999, Unique Institute has had one simple aim: to make quality language
                   education accessible to everyone in Dehradun who dreams of mastering a foreign
                   language. Watching thousands of students transform their lives through language has
                   been the greatest reward of this work.

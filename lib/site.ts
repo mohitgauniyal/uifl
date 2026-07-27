@@ -12,8 +12,8 @@ export const siteConfig = {
   url: 'https://uniqueinstituteddn.in',
   tagline: 'Foreign language training that gets you certified',
   description:
-    'Foreign language institute in Dehradun since 1998. Classroom & online courses in French, German, Spanish, Japanese, Russian, English and Chinese, with DELF, Goethe, DELE, JLPT, HSK, IELTS and TOEFL exam preparation.',
-  foundingYear: '1998',
+    'Foreign language institute in Dehradun since 1999. Classroom & online courses in French, German, Spanish, Japanese, Russian, English and Chinese, with DELF, Goethe, DELE, JLPT, HSK, IELTS and TOEFL exam preparation.',
+  foundingYear: '1999',
   phone: ['+91 94120 59424', '+91 85349 78542'],
   email: 'uniqueinstituteddn@gmail.com',
   whatsapp: '+919412059424',
@@ -34,12 +34,15 @@ export const siteConfig = {
     instagram: 'https://www.instagram.com/uniqueinstituteddn/',
     youtube: 'https://www.youtube.com/@uniqueinstituteddn',
   },
+  justdial:
+    'https://www.justdial.com/Dehradun/Unique-Institute-Of-Foreign-Languages-Next-To-Mohan-Mandir-Dehradun-City/9999PX135-X135-140715185400-U5N2_BZDET',
   // sameAs links every official profile to the site for search engines.
   // TODO: add your Google Business Profile URL here too.
   sameAs: [
     'https://www.facebook.com/uniqueinstituteddn/',
     'https://www.instagram.com/uniqueinstituteddn/',
     'https://www.youtube.com/@uniqueinstituteddn',
+    'https://www.justdial.com/Dehradun/Unique-Institute-Of-Foreign-Languages-Next-To-Mohan-Mandir-Dehradun-City/9999PX135-X135-140715185400-U5N2_BZDET',
   ],
 } as const
 

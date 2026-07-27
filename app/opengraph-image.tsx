@@ -21,7 +21,7 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ fontSize: 26, letterSpacing: 8, color: '#A67C34', fontWeight: 600 }}>
-          EST. 1998 · DEHRADUN
+          EST. 1999 · DEHRADUN
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>

@@ -20,7 +20,7 @@ export default function Hero() {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Established 1998 · Dehradun &amp; Online
+              Established 1999 · Dehradun &amp; Online
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-foreground">
