@@ -4,20 +4,20 @@ import { PageHeader } from '@/components/page-header'
 import { MediaFrame } from '@/components/media-frame'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { Trophy, Users, Globe, Award } from 'lucide-react'
+import { Trophy, Users, Globe, GraduationCap } from 'lucide-react'
 
 export const metadata = {
   title: 'About Us — 25+ Years of Language Education in Dehradun',
   description:
-    'Unique Institute of Foreign Languages has taught foreign languages in Dehradun since 1998, with certified faculty, small batches and a 95%+ success rate in international exams.',
+    'Unique Institute of Foreign Languages has taught foreign languages in Dehradun since 1998, with experienced faculty, small batches of 6–8 and structured preparation for DELF, Goethe, DELE, JLPT, HSK and IELTS.',
   alternates: { canonical: '/about' },
 }
 
 const stats = [
-  { icon: Trophy, label: 'Excellence', value: '25+ years' },
-  { icon: Users, label: 'Students', value: '5,000+' },
+  { icon: Trophy, label: 'Of excellence', value: '25+ years' },
+  { icon: Users, label: 'Students taught', value: '10,000+' },
   { icon: Globe, label: 'Languages', value: '7' },
-  { icon: Award, label: 'Success rate', value: '95%+' },
+  { icon: GraduationCap, label: 'Students per batch', value: '6–8' },
 ]
 
 const values = [

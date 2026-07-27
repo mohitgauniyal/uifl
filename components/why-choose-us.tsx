@@ -12,7 +12,7 @@ const pillars = [
   },
   {
     title: 'Proven, exam-aligned results',
-    description: 'A 95%+ success rate across DELF, Goethe, DELE, JLPT, HSK, IELTS and more.',
+    description: 'Structured, exam-focused preparation for DELF, Goethe, DELE, JLPT, HSK, IELTS and more.',
   },
 ]
 
