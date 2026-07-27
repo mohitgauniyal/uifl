@@ -50,7 +50,7 @@ const faculty = [
 const highlights = [
   { title: 'One team, seven languages', description: 'A close-knit faculty teaching French, German, Spanish, Japanese, Russian, English and Chinese under one roof.' },
   { title: 'Exam-focused teaching', description: 'Structured preparation for DELF, Goethe, DELE, JLPT, HSK, IELTS and TOEFL — with mock tests and real feedback.' },
-  { title: 'Small, personal batches', description: 'Level-matched groups of 6–8, so every learner gets genuine individual attention.' },
+  { title: 'Small, personal batches', description: 'Level-matched groups kept small, so every learner gets genuine individual attention.' },
   { title: 'Guidance beyond class', description: 'Study-abroad and exam counselling alongside day-to-day teaching.' },
 ]
 

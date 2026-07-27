@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: 'What are the batch sizes and timings?',
-    a: 'Batches are small — an average of 6–8 students — so everyone gets individual attention. We run morning, evening and weekend batches. Contact us for the next available start dates for your language and level.',
+    a: 'Batches are kept small so everyone gets individual attention, and we run morning, evening and weekend batches. Prefer a different format? We also offer one-on-one coaching and live online classes. Contact us for the next available start dates for your language and level.',
   },
   {
     q: 'What are the fees?',

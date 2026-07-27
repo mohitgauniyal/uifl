@@ -7,8 +7,8 @@ const pillars = [
     description: 'A dedicated team that teaches all seven languages, with a focus on exam success — not a rotating cast of part-timers.',
   },
   {
-    title: 'Small batches of 6–8',
-    description: 'Level-matched groups so every learner gets genuine individual attention.',
+    title: 'Learn the way that suits you',
+    description: 'Small group batches, one-on-one coaching or live online — matched to your goals and schedule.',
   },
   {
     title: 'Proven, exam-aligned results',

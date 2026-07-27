@@ -25,7 +25,7 @@ const formats = [
   },
   {
     title: 'Group Classes',
-    description: 'Small, level-matched batches of 6–8 students with interactive, guided practice.',
+    description: 'Small, level-matched groups with interactive, guided practice.',
   },
   {
     title: 'One-on-One Training',
