@@ -38,7 +38,7 @@ export default function CoursesPage() {
 
       <PageHeader
         eyebrow="Course catalogue"
-        title="Seven languages, from beginner to certified"
+        title="Foreign Language Courses in Dehradun"
         description="Complete programs that take you from your first words to fluency, each mapped to an internationally recognised certification."
       />
 

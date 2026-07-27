@@ -37,7 +37,7 @@ export default function LanguagesPage() {
 
       <PageHeader
         eyebrow="Our language offerings"
-        title="Seven languages, seven paths forward"
+        title="Foreign Languages We Teach in Dehradun"
         description="Explore each program and see how the language, certifications and opportunities line up with your goals."
       />
 
