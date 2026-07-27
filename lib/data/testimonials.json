@@ -368,27 +368,5 @@
         "type": "text",
         "avatar": "",
         "videoUrl": ""
-    },
-    {
-        "id": "mock-video-1",
-        "name": "Sakshi Sharma",
-        "role": "DELF B2 Achiever",
-        "language": "French",
-        "content": "My amazing journey learning French from scratch!",
-        "type": "video",
-        "avatar": "",
-        "videoUrl": "https://www.youtube.com/watch?v=0hM4M_3nQ-M",
-        "rating": 5
-    },
-    {
-        "id": "mock-video-2",
-        "name": "Amit Verma",
-        "role": "Goethe B1 Student",
-        "language": "German",
-        "content": "Professional German coaching helped me land a job in Berlin.",
-        "type": "video",
-        "avatar": "",
-        "videoUrl": "https://www.youtube.com/watch?v=W95S7zO2v-M",
-        "rating": 5
     }
 ]
