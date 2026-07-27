@@ -17,7 +17,7 @@ Use `.jpg` for photos. Keep the **exact** names and folders below.
 | File | Path | Appears |
 |------|------|---------|
 | Dhananjay Dhoundiyal | `public/faculty/dhananjay.jpg` | Faculty page |
-| Deekshit Rawat | `public/faculty/deekshit.jpg` | Faculty page |
+| Dikshit Rawat | `public/faculty/dikshit.jpg` | Faculty page |
 | Parth Dhoundiyal | `public/faculty/parth.jpg` | Faculty page |
 | Director's photo (a different pic of Dhananjay) | `public/about/director.jpg` | About → Director's message |
 

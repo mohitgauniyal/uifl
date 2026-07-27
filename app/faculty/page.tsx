@@ -28,13 +28,13 @@ const faculty = [
     bio: 'Dhananjay leads Unique Institute and teaches across all seven languages. Over more than two decades he has shaped the institute’s exam-focused method and personally guided thousands of students through DELF, Goethe, DELE, JLPT, HSK and IELTS preparation.',
   },
   {
-    id: 'deekshit',
-    name: 'Deekshit Rawat',
+    id: 'dikshit',
+    name: 'Dikshit Rawat',
     role: 'Instructor',
-    photo: '/faculty/deekshit.jpg',
+    photo: '/faculty/dikshit.jpg',
     teaches: ['french', 'german', 'spanish', 'english'],
     teachesLabel: 'French · German · Spanish · English',
-    bio: 'Deekshit teaches French, German, Spanish and English, taking learners from absolute beginner through advanced and exam-ready levels with a patient, conversation-first approach.',
+    bio: 'Dikshit teaches French, German, Spanish and English, taking learners from absolute beginner through advanced and exam-ready levels with a patient, conversation-first approach.',
   },
   {
     id: 'parth',
@@ -48,7 +48,7 @@ const faculty = [
 ]
 
 const highlights = [
-  { title: 'One team, seven languages', description: 'A close-knit faculty teaching French, German, Spanish, Japanese, Russian, English and Chinese under one roof.' },
+  { title: 'One team, seven languages', description: 'A dedicated faculty teaching French, German, Spanish, Japanese, Russian, English and Chinese under one roof.' },
   { title: 'Exam-focused teaching', description: 'Structured preparation for DELF, Goethe, DELE, JLPT, HSK, IELTS and TOEFL — with mock tests and real feedback.' },
   { title: 'Small, personal batches', description: 'Level-matched groups kept small, so every learner gets genuine individual attention.' },
   { title: 'Guidance beyond class', description: 'Study-abroad and exam counselling alongside day-to-day teaching.' },
@@ -66,14 +66,14 @@ export default function FacultyPage() {
       <PageHeader
         eyebrow="Our faculty"
         title="The people who’ll teach you"
-        description="A close-knit team led by our director, teaching all seven languages with a hands-on, exam-focused approach."
+        description="A dedicated team led by our director, teaching all seven languages with a hands-on, practical approach."
       />
 
       {/* Intro band */}
       <section className="py-16 bg-background border-b border-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-xl border border-border bg-card p-8 space-y-4">
-            <h2 className="text-xl font-bold text-foreground">Small team. Personal attention.</h2>
+            <h2 className="text-xl font-bold text-foreground">Taught by people who know you.</h2>
             <p className="text-muted-foreground leading-relaxed">
               At Unique Institute you learn directly from our director and a dedicated team of
               instructors. The same faces guide you from your very first class to real fluency.
