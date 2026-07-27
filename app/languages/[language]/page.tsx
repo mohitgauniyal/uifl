@@ -9,6 +9,9 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Flag } from '@/components/flag'
 import { FeatureList } from '@/components/feature-list'
+import { IntroVideo } from '@/components/intro-video'
+import { VideoCard } from '@/components/resources/video-card'
+import youtubeVideos from '@/lib/data/youtube-videos.json'
 import { use, useState } from 'react'
 
 const languageData: Record<string, any> = {
@@ -82,6 +85,13 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
   const [selectedLevel, setSelectedLevel] = useState(0)
   const data = languageData[language]
 
+  // Real lessons for this language from our channel. When none exist yet
+  // (e.g. Japanese, Chinese), the hero keeps its classroom placeholder and the
+  // video section is skipped — add a video with this `language` tag to light it up.
+  const langVideos = data ? youtubeVideos.filter((v) => v.language === data.language) : []
+  const featuredVideo = langVideos[0]
+  const moreVideos = langVideos.slice(1, 7)
+
   if (!data) {
     return (
       <main>
@@ -120,7 +130,15 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
               </Button>
             </div>
 
-            <MediaFrame aspect="aspect-[4/3]" label={`${data.language} classroom`} />
+            {featuredVideo ? (
+              <IntroVideo
+                videoUrl={featuredVideo.youtubeLink}
+                label={`${data.language} lesson`}
+                caption={featuredVideo.title}
+              />
+            ) : (
+              <MediaFrame aspect="aspect-[4/3]" label={`${data.language} classroom`} />
+            )}
           </div>
         </div>
       </section>
@@ -192,6 +210,34 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
           />
         </div>
       </section>
+
+      {/* Video lessons — real content from our channel */}
+      {moreVideos.length > 0 && (
+        <section className="py-20 lg:py-24 bg-background border-t border-border">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+              <div>
+                <p className="text-sm font-semibold text-primary mb-2">From our channel</p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+                  Learn {data.language} with our lessons
+                </h2>
+              </div>
+              <Button variant="outline" asChild>
+                <Link href={`/resources?lang=${encodeURIComponent(data.language)}`}>
+                  Browse all {data.language} lessons
+                  <ArrowRight size={18} className="ml-2" />
+                </Link>
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {moreVideos.map((video) => (
+                <VideoCard key={video.id} {...video} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-20 lg:py-24 bg-background">

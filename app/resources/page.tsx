@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { PageHeader } from '@/components/page-header'
@@ -21,6 +21,14 @@ const learningResources = [
 
 export default function ResourcesPage() {
   const [selectedLanguage, setSelectedLanguage] = useState('All')
+
+  // Preselect a language when linked from a language page (/resources?lang=French)
+  useEffect(() => {
+    const lang = new URLSearchParams(window.location.search).get('lang')
+    if (lang && youtubeVideos.some((v) => v.language === lang)) {
+      setSelectedLanguage(lang)
+    }
+  }, [])
 
   const languages = useMemo(() => {
     const langs = new Set(youtubeVideos.map((v) => v.language))
