@@ -86,32 +86,34 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 items-start">
             <div className="lg:col-span-1">
-              <MediaFrame aspect="aspect-[3/4]" label="Director's photo" />
+              <MediaFrame src="/about/director.jpg" alt="Dhananjay Dhoundiyal" aspect="aspect-[3/4]" label="Director's photo" />
             </div>
 
             <div className="lg:col-span-2 space-y-6">
               <div>
                 <p className="text-sm font-semibold text-primary mb-2">Director&apos;s message</p>
-                <h2 className="text-2xl font-bold text-foreground">Dr. Rajesh Kumar</h2>
-                <p className="text-muted-foreground">Founder &amp; Director</p>
+                <h2 className="text-2xl font-bold text-foreground">Dhananjay Dhoundiyal</h2>
+                <p className="text-muted-foreground">Director</p>
               </div>
 
+              {/* Placeholder message — refine with the director's own words anytime. */}
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  When I founded Unique Institute in 1998, the vision was simple: to make quality
-                  language education accessible to everyone who dreamed of mastering a foreign language.
-                  Over the years, watching thousands of students transform their lives through language
-                  has been the greatest reward.
+                  Since 1998, Unique Institute has had one simple aim: to make quality language
+                  education accessible to everyone in Dehradun who dreams of mastering a foreign
+                  language. Watching thousands of students transform their lives through language has
+                  been the greatest reward of this work.
                 </p>
                 <p>
-                  Language is not just a subject — it is a gateway to new worlds, cultures and
-                  opportunities. Every student brings unique aspirations, and our commitment has always
-                  been to help them achieve those goals with personalised attention and expert guidance.
+                  A language is not just a subject — it is a gateway to new worlds, cultures and
+                  opportunities. Every student arrives with their own aspirations, and our commitment
+                  has always been to help them reach those goals with personalised attention and honest,
+                  expert guidance.
                 </p>
                 <p>
-                  Today, with seven languages, expert faculty and both classroom and online options, we
-                  stand as a trusted name in language education. Our 95%+ success rate and the confidence
-                  we see in our students speak to our method and dedication.
+                  Today, across seven languages and both classroom and online formats, we remain a
+                  trusted name in language education in Dehradun — and the confidence we see in our
+                  students is what keeps us going.
                 </p>
               </div>
 
@@ -137,7 +139,7 @@ export default function AboutPage() {
             {values.map((value, i) => (
               <div key={value.title} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
-                  <MediaFrame aspect="aspect-[16/10]" label={`${value.title} — photo`} />
+                  <MediaFrame src={`/gallery/classroom-${i + 1}.jpg`} alt={`${value.title} at Unique Institute`} aspect="aspect-[16/10]" label={`${value.title} — photo`} />
                 </div>
                 <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
                   <h3 className="text-2xl font-bold text-foreground">{value.title}</h3>
