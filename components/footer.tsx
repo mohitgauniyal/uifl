@@ -63,8 +63,9 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <Phone size={16} className="text-primary flex-shrink-0 mt-1" />
                 <div className="text-sm">
-                  <p className="text-muted-foreground">+91 9724640763</p>
-                  <p className="text-muted-foreground">+91 9879878975</p>
+                  {siteConfig.phone.map((number) => (
+                    <p key={number} className="text-muted-foreground">{number}</p>
+                  ))}
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -76,8 +77,10 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin size={16} className="text-primary flex-shrink-0 mt-1" />
                 <div className="text-sm">
-                  <p className="text-muted-foreground">1/4, Rajpur Road</p>
-                  <p className="text-muted-foreground">Dehradun – 248001</p>
+                  <p className="text-muted-foreground">{siteConfig.address.street}</p>
+                  <p className="text-muted-foreground">
+                    {siteConfig.address.locality} – {siteConfig.address.postalCode}, {siteConfig.address.region}
+                  </p>
                 </div>
               </div>
             </div>

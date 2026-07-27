@@ -20,7 +20,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
 
 const infoCards = [
   { icon: Phone, title: 'Call us', meta: 'Available 9 AM – 8 PM, Mon–Sun', lines: siteConfig.phone },
-  { icon: MapPin, title: 'Visit us', meta: 'Our centre', lines: ['1/4, Rajpur Road', 'Dehradun – 248001', 'Uttarakhand, India'] },
+  { icon: MapPin, title: 'Visit us', meta: 'Our centre', lines: [siteConfig.address.street, `${siteConfig.address.locality} – ${siteConfig.address.postalCode}`, `${siteConfig.address.region}, India`] },
   { icon: Clock, title: 'Working hours', meta: 'Monday – Sunday', lines: ['9:00 AM – 8:00 PM', 'Online classes worldwide'] },
 ]
 

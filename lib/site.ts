@@ -14,12 +14,12 @@ export const siteConfig = {
   description:
     'Foreign language institute in Dehradun since 1998. Classroom & online courses in French, German, Spanish, Japanese, Russian, English and Chinese, with DELF, Goethe, DELE, JLPT, HSK, IELTS and TOEFL exam preparation.',
   foundingYear: '1998',
-  phone: ['+91 97246 40763', '+91 98798 78975'],
+  phone: ['+91 94120 59424', '+91 85349 78542'],
   email: 'uniqueinstituteddn@gmail.com',
-  whatsapp: '+919724640763',
+  whatsapp: '+919412059424',
   priceRange: '₹₹',
   address: {
-    street: '1/4, Rajpur Road',
+    street: '1/4, Rajpur Road, Neshvilla Rd, next to Mohan Mandir',
     locality: 'Dehradun',
     region: 'Uttarakhand',
     postalCode: '248001',

@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     q: 'What are the fees?',
-    a: 'Fees vary by language, level and format (classroom, online, group or one-on-one). Please call us on +91 97246 40763 or book a free assessment and we will share the current fees along with a recommended learning plan.',
+    a: 'Fees vary by language, level and format (classroom, online, group or one-on-one). Please call us on +91 94120 59424 or book a free assessment and we will share the current fees along with a recommended learning plan.',
   },
   {
     q: 'Can you help with studying or working abroad?',
@@ -49,11 +49,11 @@ const faqs = [
   },
   {
     q: 'How do I enrol or book a demo class?',
-    a: 'Book a free assessment through our contact page, or call +91 97246 40763. We will assess your current level, recommend the right course, and help you join the next suitable batch.',
+    a: 'Book a free assessment through our contact page, or call +91 94120 59424. We will assess your current level, recommend the right course, and help you join the next suitable batch.',
   },
   {
     q: 'Where are you located?',
-    a: 'We are at 1/4, Rajpur Road, Dehradun – 248001, Uttarakhand. The centre is easy to reach by public transport, with parking available.',
+    a: 'We are at 1/4, Rajpur Road, Neshvilla Rd, next to Mohan Mandir, Dehradun – 248001, Uttarakhand. The centre is easy to reach by public transport, with parking available.',
   },
 ]
 
@@ -104,7 +104,7 @@ export default function FaqPage() {
                 <Link href="/contact">Book a Free Assessment</Link>
               </Button>
               <Button variant="outline" asChild>
-                <a href="tel:+919724640763">Call +91 97246 40763</a>
+                <a href="tel:+919412059424">Call +91 94120 59424</a>
               </Button>
             </div>
           </div>

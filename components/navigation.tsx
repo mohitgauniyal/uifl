@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Menu, X, Phone, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Brand } from '@/components/brand'
+import { siteConfig } from '@/lib/site'
 
 const navLinks = [
   { label: 'Courses', href: '/courses' },
@@ -26,9 +27,9 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-9 text-xs">
             <div className="flex items-center gap-6">
-              <a href="tel:+919724640763" className="inline-flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+              <a href={`tel:${siteConfig.phone[0].replace(/\s/g, '')}`} className="inline-flex items-center gap-1.5 hover:opacity-80 transition-opacity">
                 <Phone size={13} />
-                +91 97246 40763
+                {siteConfig.phone[0]}
               </a>
               <span className="inline-flex items-center gap-1.5 opacity-90">
                 <MapPin size={13} />

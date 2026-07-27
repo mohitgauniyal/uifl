@@ -60,7 +60,7 @@ export default function NotFound() {
             </div>
             <p className="mt-8 text-sm text-muted-foreground inline-flex items-center gap-2">
               <Phone size={14} className="text-primary" />
-              Need help? Call +91 97246 40763
+              Need help? Call +91 94120 59424
             </p>
           </div>
         </div>
