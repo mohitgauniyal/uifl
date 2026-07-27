@@ -5,10 +5,8 @@ import Link from 'next/link'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { TestimonialCard } from '@/components/testimonials/testimonial-card'
 import testimonialsData from '@/lib/data/testimonials.json'
-import { Search, Filter } from 'lucide-react'
 
 const testimonials = testimonialsData as any[]
 
@@ -66,39 +64,11 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Toolbar */}
-      <section className="sticky top-16 md:top-[6.25rem] z-30 bg-background/90 backdrop-blur border-b border-border py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
-            <div className="relative w-full md:w-96 group">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4 group-focus-within:text-primary transition-colors" />
-              <Input
-                placeholder="Search by name, role or content..."
-                className="pl-10 h-11 rounded-full bg-muted/50"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
-
-            <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
-              <Filter className="w-4 h-4 text-muted-foreground mr-1 flex-shrink-0" />
-              {languages.map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => setSelectedLanguage(lang)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap border ${
-                    selectedLanguage === lang
-                      ? 'bg-primary text-primary-foreground border-primary'
-                      : 'bg-background text-muted-foreground border-border hover:border-primary/50 hover:text-foreground'
-                  }`}
-                >
-                  {lang}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Filter toolbar intentionally hidden for now: some languages have no
+          reviews yet, so a language filter would expose those gaps. The search
+          + language filtering logic below (searchQuery / selectedLanguage /
+          languages / filteredTestimonials) is kept intact so the toolbar can be
+          restored here once every language has testimonials. */}
 
       {/* Grid */}
       <section className="py-16 lg:py-20">
