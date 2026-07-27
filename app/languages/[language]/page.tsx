@@ -17,43 +17,43 @@ import { use, useState } from 'react'
 const languageData: Record<string, any> = {
   french: {
     language: 'French', greeting: 'Bonjour', tagline: 'Parlez français avec confiance',
-    description: 'Master French through comprehensive DELF preparation, conversational fluency and rich cultural immersion.',
+    description: 'Learn French in Dehradun for study and immigration to Canada and France, or for global careers. Our DELF and DALF coaching builds real speaking skills and takes you from beginner to advanced — at our Dehradun centre or online.',
     levels: [{ code: 'A1', title: 'Elementary', duration: '2–3 mo', topics: 4 }, { code: 'A2', title: 'Elementary Upper', duration: '2–3 mo', topics: 4 }, { code: 'B1', title: 'Intermediate', duration: '3–4 mo', topics: 5 }, { code: 'B2', title: 'Upper Inter', duration: '3–4 mo', topics: 4 }, { code: 'C1', title: 'Advanced', duration: '4–5 mo', topics: 5 }],
     tracks: [{ title: 'DELF Exam Prep', desc: 'All levels with mock tests', duration: '6–10 weeks' }, { title: 'Conversational', desc: 'Real-world communication', duration: '8–12 weeks' }, { title: 'Business French', desc: 'Professional communication', duration: '10–12 weeks' }, { title: 'Kids Program', desc: 'Ages 6–12, interactive', duration: 'Flexible' }],
   },
   german: {
     language: 'German', greeting: 'Guten Tag', tagline: 'Sprechen Sie Deutsch mit Zuversicht',
-    description: 'Learn German for business, culture and Goethe certification with expert instructors.',
+    description: 'Learn German in Dehradun for higher studies, jobs, and vocational training in Germany. Our Goethe-Zertifikat coaching focuses on speaking and exam success, from beginner to advanced — in class or live online.',
     levels: [{ code: 'A1', title: 'Elementary', duration: '2–3 mo', topics: 4 }, { code: 'A2', title: 'Elementary Upper', duration: '2–3 mo', topics: 4 }, { code: 'B1', title: 'Intermediate', duration: '3–4 mo', topics: 5 }, { code: 'B2', title: 'Upper Inter', duration: '3–4 mo', topics: 4 }, { code: 'C1', title: 'Advanced', duration: '4–5 mo', topics: 5 }],
     tracks: [{ title: 'Goethe Exam', desc: 'All certification levels', duration: '6–10 weeks' }, { title: 'Business German', desc: 'Corporate communication', duration: '10–12 weeks' }, { title: 'Conversational', desc: 'Everyday fluency', duration: '8–12 weeks' }, { title: 'Cultural Course', desc: 'German culture & history', duration: '6 weeks' }],
   },
   spanish: {
     language: 'Spanish', greeting: 'Hola', tagline: 'Habla español con confianza',
-    description: 'Spanish language with DELE exam preparation, conversational skills and Latin American culture.',
+    description: 'Learn Spanish in Dehradun for travel, business, and connecting across Latin America and Spain. Our DELE preparation blends everyday conversation with exam practice, from beginner to advanced — at our centre or online.',
     levels: [{ code: 'A1', title: 'Elementary', duration: '2–3 mo', topics: 4 }, { code: 'A2', title: 'Elementary Upper', duration: '2–3 mo', topics: 4 }, { code: 'B1', title: 'Intermediate', duration: '3–4 mo', topics: 5 }, { code: 'B2', title: 'Upper Inter', duration: '3–4 mo', topics: 4 }, { code: 'C1', title: 'Advanced', duration: '4–5 mo', topics: 5 }],
     tracks: [{ title: 'DELE Exam Prep', desc: 'All levels certified', duration: '6–10 weeks' }, { title: 'Latin American', desc: 'Regional variations', duration: '8 weeks' }, { title: 'Conversational', desc: 'Practical communication', duration: '8–12 weeks' }, { title: 'Business Spanish', desc: 'Professional skills', duration: '10 weeks' }],
   },
   japanese: {
     language: 'Japanese', greeting: 'こんにちは', tagline: '日本語を話す',
-    description: 'Japanese language and culture with JLPT certification preparation and immersive learning.',
+    description: 'Learn Japanese in Dehradun for study and work in Japan, and for careers in the IT and automobile sectors. Our JLPT coaching covers script, grammar, and conversation from beginner (N5) to advanced (N1) — in class or online.',
     levels: [{ code: 'N5', title: 'Beginner', duration: '3 mo', topics: 4 }, { code: 'N4', title: 'Elementary', duration: '3 mo', topics: 4 }, { code: 'N3', title: 'Intermediate', duration: '4 mo', topics: 5 }, { code: 'N2', title: 'Upper Inter', duration: '4 mo', topics: 5 }, { code: 'N1', title: 'Advanced', duration: '5 mo', topics: 5 }],
     tracks: [{ title: 'JLPT Prep', desc: 'All levels N5–N1', duration: '12–20 weeks' }, { title: 'Cultural', desc: 'Art, tradition & food', duration: '6 weeks' }, { title: 'Conversational', desc: 'Daily communication', duration: '8–12 weeks' }, { title: 'Business Japanese', desc: 'Professional context', duration: '10 weeks' }],
   },
   russian: {
     language: 'Russian', greeting: 'Привет', tagline: 'Говорите по-русски с уверенностью',
-    description: 'Russian language including literature, business communication and cultural immersion.',
+    description: 'Learn Russian in Dehradun for medical and higher studies in Russia, and for business communication. Our TORFL preparation covers reading, writing, and speaking from beginner to advanced — at our centre or live online.',
     levels: [{ code: 'A1', title: 'Elementary', duration: '3 mo', topics: 4 }, { code: 'A2', title: 'Elementary Upper', duration: '3 mo', topics: 4 }, { code: 'B1', title: 'Intermediate', duration: '4 mo', topics: 5 }, { code: 'B2', title: 'Upper Inter', duration: '4 mo', topics: 5 }],
     tracks: [{ title: 'Literature Focus', desc: 'Russian classics', duration: '8 weeks' }, { title: 'Business Russian', desc: 'Corporate training', duration: '10 weeks' }, { title: 'Conversational', desc: 'Everyday fluency', duration: '10–12 weeks' }, { title: 'Intensive', desc: 'Fast-track program', duration: '6 weeks' }],
   },
   english: {
     language: 'English', greeting: 'Hello', tagline: 'Speak English fluently',
-    description: 'English proficiency with TOEFL and IELTS certification, business English and academic writing.',
+    description: 'Learn English in Dehradun for IELTS and TOEFL, and to speak confidently for study, work, and travel abroad. Our coaching improves spoken and written English and prepares you for the score you need — in class or online.',
     levels: [{ code: 'A1', title: 'Elementary', duration: '2–3 mo', topics: 4 }, { code: 'A2', title: 'Elementary Upper', duration: '2–3 mo', topics: 4 }, { code: 'B1', title: 'Intermediate', duration: '3 mo', topics: 5 }, { code: 'B2', title: 'Upper Inter', duration: '3 mo', topics: 5 }, { code: 'C1', title: 'Advanced', duration: '4 mo', topics: 5 }],
     tracks: [{ title: 'TOEFL Prep', desc: 'Academic English', duration: '8–12 weeks' }, { title: 'IELTS Prep', desc: 'All modules', duration: '8–12 weeks' }, { title: 'Spoken English', desc: 'Confidence & fluency', duration: '6–10 weeks' }, { title: 'Business English', desc: 'Professional skills', duration: '8 weeks' }],
   },
   chinese: {
     language: 'Chinese', greeting: '你好', tagline: '说普通话',
-    description: 'Mandarin Chinese with HSK certification pathway and cultural immersion programs.',
+    description: 'Learn Mandarin Chinese in Dehradun for business, trade, and career growth across Asia. Our HSK coaching builds tones, characters, and everyday conversation from beginner to advanced — at our centre or live online.',
     levels: [{ code: 'HSK1', title: 'Beginner', duration: '2–3 mo', topics: 3 }, { code: 'HSK2', title: 'Elementary', duration: '2–3 mo', topics: 3 }, { code: 'HSK3', title: 'Intermediate', duration: '3–4 mo', topics: 4 }, { code: 'HSK4', title: 'Upper Inter', duration: '3–4 mo', topics: 4 }, { code: 'HSK5', title: 'Advanced', duration: '4–5 mo', topics: 5 }],
     tracks: [{ title: 'HSK Certification', desc: 'All levels HSK1–5', duration: '8–16 weeks' }, { title: 'Conversational', desc: 'Practical communication', duration: '10 weeks' }, { title: 'Business Chinese', desc: 'Professional context', duration: '10 weeks' }, { title: 'Cultural Immersion', desc: 'Heritage & customs', duration: '6 weeks' }],
   },
@@ -119,7 +119,9 @@ export default function LanguagePage({ params }: { params: Promise<{ language: s
                 <Flag code={language} className="h-8 w-12" />
                 <span className="text-2xl font-medium text-muted-foreground">{data.greeting}</span>
               </div>
-              <h1 className="text-5xl sm:text-6xl font-bold text-foreground">{data.language}</h1>
+              <h1 className="text-4xl sm:text-5xl font-bold text-foreground">
+                {data.language} Classes <span className="text-primary">in Dehradun</span>
+              </h1>
               <p className="text-lg text-primary font-medium">{data.tagline}</p>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">{data.description}</p>
               <Button size="lg" asChild>
