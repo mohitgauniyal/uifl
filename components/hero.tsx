@@ -18,14 +18,11 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: message */}
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Established 1999 · Dehradun &amp; Online
-            </div>
+            <p className="text-sm font-semibold text-primary">Classroom &amp; online classes</p>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-foreground">
               Foreign language training that gets you{' '}
-              <span className="text-primary">speaking — and certified</span>.
+              <span className="text-primary">speaking, and certified</span>.
             </h1>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
