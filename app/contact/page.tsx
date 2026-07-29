@@ -132,12 +132,14 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5">Email address</label>
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} required className={inputClass} placeholder="you@example.com" />
+                    <label className="block text-sm font-medium text-foreground mb-1.5">Phone number</label>
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className={inputClass} placeholder="+91 9XXXXXXXXX" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5">Phone number</label>
-                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className={inputClass} placeholder="+91 9XXXXXXXXX" />
+                    <label className="block text-sm font-medium text-foreground mb-1.5">
+                      Email address <span className="text-muted-foreground font-normal">(optional)</span>
+                    </label>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} className={inputClass} placeholder="you@example.com" />
                   </div>
                 </div>
 
