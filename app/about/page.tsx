@@ -9,7 +9,7 @@ import { Trophy, Users, Globe, GraduationCap } from 'lucide-react'
 export const metadata = {
   title: 'About Us — 25+ Years of Language Education in Dehradun',
   description:
-    'Unique Institute of Foreign Languages has taught foreign languages in Dehradun since 1999, with experienced faculty, small personal classes and structured preparation for DELF, Goethe, DELE, JLPT, HSK and IELTS.',
+    'Foreign language education in Dehradun since 1999 — experienced faculty, small personal classes, and exam prep for DELF, Goethe, JLPT, HSK and IELTS.',
   alternates: { canonical: '/about' },
 }
 

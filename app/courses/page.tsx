@@ -10,7 +10,7 @@ import { FeatureList } from '@/components/feature-list'
 export const metadata = {
   title: 'Language Courses in Dehradun',
   description:
-    'Explore French, German, Spanish, Japanese, Russian, English and Chinese courses in Dehradun and online — from beginner to fluency, with exam preparation for DELF, Goethe, DELE, JLPT, HSK, IELTS and TOEFL.',
+    'French, German, Spanish, Japanese, Russian, English and Chinese courses in Dehradun and online — from beginner to fluency, with expert exam preparation.',
   alternates: { canonical: '/courses' },
 }
 

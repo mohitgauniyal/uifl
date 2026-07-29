@@ -11,8 +11,12 @@ export const siteConfig = {
   shortName: 'UIFL',
   url: 'https://uniqueinstituteddn.in',
   tagline: 'Foreign language training that gets you certified',
+  // Rich version — used where length doesn't truncate (JSON-LD, manifest, llms.txt).
   description:
     'Foreign language institute in Dehradun since 1999. Classroom & online courses in French, German, Spanish, Japanese, Russian, English and Chinese, with DELF, Goethe, DELE, JLPT, HSK, IELTS and TOEFL exam preparation.',
+  // ~150 chars — used for search/social snippets (meta, OG, Twitter) that truncate.
+  shortDescription:
+    'Foreign language classes in Dehradun and online since 1999 — French, German, Spanish, Japanese, Russian, English & Chinese, with expert exam coaching.',
   foundingYear: '1999',
   phone: ['+91 94120 59424', '+91 85349 78542'],
   email: 'uniqueinstituteddn@gmail.com',

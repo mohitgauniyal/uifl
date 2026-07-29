@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono"
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Unique Institute of Foreign Languages | Language Classes in Dehradun',
+    default: 'Foreign Language Classes in Dehradun | Unique Institute',
     template: '%s | Unique Institute of Foreign Languages',
   },
-  description: siteConfig.description,
+  description: siteConfig.shortDescription,
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name }],
   keywords: [
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     url: siteConfig.url,
     locale: 'en_IN',
-    title: 'Unique Institute of Foreign Languages | Language Classes in Dehradun',
-    description: siteConfig.description,
+    title: 'Foreign Language Classes in Dehradun | Unique Institute',
+    description: siteConfig.shortDescription,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Unique Institute of Foreign Languages | Dehradun',
-    description: siteConfig.description,
+    title: 'Foreign Language Classes in Dehradun',
+    description: siteConfig.shortDescription,
   },
   robots: { index: true, follow: true },
   // Favicons come from app/icon.tsx and app/apple-icon.tsx (Next auto-injects them).
