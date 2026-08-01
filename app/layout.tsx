@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { siteConfig } from '@/lib/site'
 import { JsonLd } from '@/components/json-ld'
 import { WhatsappFab } from '@/components/whatsapp-fab'
@@ -108,6 +109,7 @@ export default function RootLayout({
         {children}
         <WhatsappFab />
         <Analytics />
+        <GoogleAnalytics gaId={siteConfig.gaId} />
       </body>
     </html>
   )
